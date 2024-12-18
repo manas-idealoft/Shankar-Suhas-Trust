@@ -12,7 +12,8 @@ import {
 	statusIcon,
 	zoomIcon,
 } from "../assets";
-import { HeroImageScroll } from "../components";
+import { HeroImageScroll, } from "../components";
+
 
 const Home = () => {
 
@@ -194,7 +195,7 @@ const Home = () => {
 						alt="Icon showing a flower with two leaves popping out from the side."
 						className="w-24 pt-28"
 					/>
-					<div className="font-cormorant font-light text-offwhite text-xl pt-40 h-3/5 overflow-y-hidden">
+					<div className=" scroll font-cormorant font-light text-offwhite text-xl mt-40 mb-24 h-1/2 px-2 overflow-y-scroll overflow-x-visible">
 						<p className="dot border-l border-offwhite px-4 pt-2 pb-12">
 							To establish and run a centre for the welfare of old and divyanga,
 							The word divyanga shall include slow-learners, mentally retarded
@@ -218,7 +219,7 @@ const Home = () => {
 							forests and wildlife and preservation of monuments, places or
 							objects of artistic or historic interest.
 						</p>
-						<p className="dot border-l border-offwhite px-4 pt-2 pb-12">
+						<p className="dot border-l border-offwhite px-4 py-2">
 							To administer the properties of the Trust in achieving the objects
 							mentioned in this Deed.
 						</p>

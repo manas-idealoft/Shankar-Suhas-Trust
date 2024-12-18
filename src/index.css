@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 
 @font-face {
   font-family: 'Cormorant Garamond';
@@ -90,10 +93,6 @@
   min-width: max-content
 }
 
-.overflow-hidden {
-  overflow: hidden; 
-}
-
 .dot {
   position: relative; /* Set position relative to allow absolute positioning of the dot */
 }
@@ -107,4 +106,13 @@
   height: 6px; /* Height of the dot */
   border-radius: 50%; /* Make it a circle */
   background-color: white; /* Set the color of the dot to white */
+}
+
+#building .scroll {
+  -ms-overflow-style: none;  /* For Internet Explorer */
+  scrollbar-width: none; /* For Firefox */
+}
+
+#building .scroll::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit-based browsers */
 }
