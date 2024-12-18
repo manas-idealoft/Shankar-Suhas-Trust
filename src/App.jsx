@@ -6,7 +6,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
 const AppLayout = () => (
-	<div className="bg-main-bg">
+	<div className="bg-main-bg h-full overflow-hidden">
 		<Navbar />
     <Outlet />
     <Footer/>

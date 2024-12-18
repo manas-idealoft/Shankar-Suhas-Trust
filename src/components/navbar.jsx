@@ -3,7 +3,7 @@ import { arrow, logo } from "../assets";
 
 const Navbar = () => {
 	return (
-		<nav className=" px-24 py-12 flex items-center justify-between">
+		<nav className=" px-24 pt-12 pb-4 flex items-center justify-between">
 			<div>
 				<Link to="/">
 					<img src={logo} alt="Logo" className="w-12" />

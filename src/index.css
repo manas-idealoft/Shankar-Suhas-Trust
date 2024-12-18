@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
   font-family: 'Cormorant Garamond';
   src: url('/src/assets/fonts/CormorantGaramond-Light.ttf') format('truetype');
@@ -25,7 +26,7 @@
 
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond-RegularItalic.ttf') format('truetype');
+  src: url('/src/assets/fonts/CormorantGaramond-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
 }
@@ -91,4 +92,19 @@
 
 .overflow-hidden {
   overflow: hidden; 
+}
+
+.dot {
+  position: relative; /* Set position relative to allow absolute positioning of the dot */
+}
+
+.dot::before {
+  content: ''; /* No text content, just the dot */
+  position: absolute; /* Position it absolutely relative to the p element */
+  top: 0;
+  left: -3px;
+  width: 6px; /* Width of the dot */
+  height: 6px; /* Height of the dot */
+  border-radius: 50%; /* Make it a circle */
+  background-color: white; /* Set the color of the dot to white */
 }
