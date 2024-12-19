@@ -1,6 +1,7 @@
 import logo from "./Logo.svg"
 import arrow from "./Arrow-Right.svg"
 import arrowWhite from "./Arrow-Right-White.svg";
+import arrowBlack from "./Arrow-Right-Black.svg";
 import arrowDown from "./Arrow-icon-down.svg"
 import buildingIcon from "./Building-Icon.svg"
 import buildingImage1 from "./Building-Image-1.png";
@@ -44,6 +45,7 @@ export {
 	logo,
 	arrow,
 	arrowWhite,
+	arrowBlack,
 	arrowDown,
 	buildingIcon,
 	buildingImage1,

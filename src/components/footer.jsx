@@ -3,7 +3,7 @@ import { logo, arrow } from "../assets";
 
 const Footer = () => {
 	return (
-		<div className="px-24 py-36 flex justify-between">
+		<div className="px-24 py-36 flex justify-between bg-beige">
 			<div className="flex flex-col justify-between">
 				<Link to="/">
 					<img src={logo} alt="Logo" className="w-12" />
