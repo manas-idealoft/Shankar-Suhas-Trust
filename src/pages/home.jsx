@@ -409,7 +409,7 @@ const Home = () => {
 						We aim to administer the properties of the Trust in achieving the
 						objectives and
 						<em className="italic">
-							make this world more accessible place to live
+							&nbsp;make this world more accessible place to live
 						</em>
 					</h4>
 					<div>
