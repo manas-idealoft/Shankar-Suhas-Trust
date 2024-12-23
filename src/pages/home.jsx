@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
 	arrow,
 	arrowWhite,
@@ -12,11 +12,14 @@ import {
 	statusIcon,
 	zoomIcon,
 } from "../assets";
-import { HeroImageScroll, } from "../components";
+import { HeroImageScroll } from "../components";
+import gsap from "gsap";
+// import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-
 	const bgClasses = [
 		"bg-com-section-1",
 		"bg-com-section-2",
@@ -31,6 +34,35 @@ const Home = () => {
 
 		return () => clearInterval(interval);
 	}, []);
+
+	const outerRef = useRef();
+	const innerRef = useRef();
+
+	useEffect(() => {
+		const building = outerRef.current;
+		const buildingPointers = innerRef.current;
+
+		if (building) {
+			let ctx = gsap.context(() => {
+				let timeline = gsap.timeline({
+					scrollTrigger: {
+						trigger: `#building`,
+						start: "top top",
+						scrub: true,
+						pin: true,
+					},
+				});
+
+				timeline.to("#building-pointers", {
+					duration: 2,
+					scrollTo: { y: 400 },
+					ease: "power2",
+				});
+			});
+
+			return () => ctx.revert();
+		}
+	});
 
 	return (
 		<div>
@@ -181,6 +213,7 @@ const Home = () => {
 			<div
 				id="building"
 				className="h-screen bg-terracotta bg-building-bg flex w-full justify-between"
+				ref={outerRef}
 			>
 				<div className="flex flex-col w-1/2 px-24 pt-24">
 					<h6 className="font-cormorant font-light text-offwhite text-xl">
@@ -195,7 +228,11 @@ const Home = () => {
 						alt="Icon showing a flower with two leaves popping out from the side."
 						className="w-24 pt-28"
 					/>
-					<div className=" scroll font-cormorant font-light text-offwhite text-xl mt-40 mb-24 h-1/2 px-2 overflow-y-scroll overflow-x-visible">
+					<div
+						id="building-pointers"
+						ref={innerRef}
+						className=" scroll font-cormorant font-light text-offwhite text-xl mt-40 mb-24 h-1/2 px-2 overflow-y-scroll overflow-x-visible"
+					>
 						<p className="dot border-l border-offwhite px-4 pt-2 pb-12">
 							To establish and run a centre for the welfare of old and divyanga,
 							The word divyanga shall include slow-learners, mentally retarded

@@ -90,7 +90,7 @@ html {
   animation: scrollImages 30s linear infinite;
   display: flex;
   gap: 16px;
-  min-width: max-content
+min-width: 200%;
 }
 
 .dot {
