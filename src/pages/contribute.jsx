@@ -55,8 +55,8 @@ const handleToggle = (index) => {
 
 	return (
 		<div>
-			<div id="origin" className="h-screen px-24 pt-12 overflow-hidden">
-				<h6 className="font-cormorant font-light text-terracotta text-xl">
+			<div id="origin" className="h-svh px-24 pt-24 overflow-hidden">
+				<h6 className="font-cormorant font-light text-terracotta text-xl pt-24">
 					ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
 				</h6>
 				<h4 className="font-cormorant font-normal text-terracotta text-5xl pt-4">
@@ -65,7 +65,7 @@ const handleToggle = (index) => {
 				</h4>
 				<ImageSlideshow />
 			</div>
-			<div id="contribute" className="h-fit py-24 px-24">
+			<div id="contribute" className="h-svh py-24 px-24">
 				<div className="flex gap-5 ">
 					<h6 className="font-cormorant font-light text-terracotta text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">CONTRIBUTE</em>
