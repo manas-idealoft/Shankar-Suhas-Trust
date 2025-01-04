@@ -122,7 +122,7 @@ const Home = () => {
 				<div
 					className={`block md:hidden h-full w-full bg-cover bg-center transition-all duration-1000 ${bgClasses[currentBg]}`}
 				></div>
-				<div className="w-full h-fit md:w-1/3 py-8 md:py-14 px-8 md:px-20 bg-offwhite">
+				<div className="w-full h-fit md:w-1/2 xl:w-1/3 py-8 md:py-14 px-8 md:px-20 bg-offwhite">
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">COMMUNITY</em>
 					</h6>
@@ -152,7 +152,7 @@ const Home = () => {
 				id="status"
 				className="h-screen bg-status-bg bg-no-repeat bg-center bg-cover flex items-center justify-center"
 			>
-				<div className="w-full md:w-1/3 bg-offwhite mx-8 md:mx-0 px-8 md:px-16 py-8 md:py-16 flex flex-col items-center justify-between h-fit gap-8 md:gap-0 md:h-2/3">
+				<div className="w-full md:w-1/2 xl:w-1/3 bg-offwhite mx-8 md:mx-0 px-8 md:px-16 py-8 md:py-16 flex flex-col items-center justify-between h-fit gap-8 md:gap-12 xl:gap-0 xl:h-2/3">
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
 						ಸ್ಥಿತಿ | <em className="font-medium italic">STATUS</em>
 					</h6>
@@ -193,14 +193,14 @@ const Home = () => {
 
 			<div
 				id="building"
-				className="h-full md:h-svh bg-terracotta bg-building-bg flex flex-col md:flex-row w-full justify-between items-center md:items-start"
+				className="h-full xl:h-svh bg-terracotta bg-building-bg flex flex-col md:gap-8 xl:gap-0 xl:flex-row w-full justify-between items-center xl:items-start"
 			>
-				<div className="flex flex-col w-full md:w-3/4 px-8 md:pl-24 md:pr-16 py-12 md:py-24 gap-8 justify-between items-center md:items-start">
-					<div className="flex flex-col items-center md:items-start">
-						<h6 className="font-cormorant font-light text-offwhite text-base md:text-xl text-center md:text-start">
+				<div className="flex flex-col w-full xl:w-3/4 px-8 md:px-24 xl:pl-24 xl:pr-16 py-12 md:pt-24 xl:py-24 gap-8 md:gap-16 justify-between items-center xl:items-start">
+					<div className="flex flex-col items-center xl:items-start">
+						<h6 className="font-cormorant font-light text-offwhite text-base md:text-xl text-center xl:text-start">
 							ನಿರ್ಮಿಸಲು |<em className="font-medium italic">BUILDING</em>
 						</h6>
-						<h4 className="font-cormorant font-normal text-offwhite text-2xl md:text-4xl text-center md:text-start">
+						<h4 className="font-cormorant font-normal text-offwhite text-2xl md:text-4xl text-center xl:text-start">
 							Weaving Lives, Nurturing
 							<br /> a <em className="italic">Collective Dream</em>
 						</h4>
@@ -214,7 +214,7 @@ const Home = () => {
 						id="building-pointers"
 						className="font-cormorant font-light text-offwhite text-base md:text-xl h-fit px-2 flex flex-col gap-6 md:grid md:grid-cols-2 md:auto-rows-min md:gap-8"
 					>
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon1} alt="" />
 							<p className="text-center md:text-left">
 								To establish and run a centre for the welfare of old and
@@ -223,7 +223,7 @@ const Home = () => {
 								also.
 							</p>
 						</div>
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon4} alt="" />
 							<p className="text-center md:text-left">
 								To establish and run schools, colleges, skill development
@@ -231,7 +231,7 @@ const Home = () => {
 								to poor students for their studies.
 							</p>
 						</div>
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon2} alt="" />
 							<p className="text-center md:text-left">
 								To undertake preservation of environment, including water-shed,
@@ -239,14 +239,14 @@ const Home = () => {
 								objects of artistic or historic interest.
 							</p>
 						</div>
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon5} alt="" />
 							<p className="text-center md:text-left">
 								To undertake rural development work like developing rural
 								schools, roads, environment, organizing medical camps etc.
 							</p>
 						</div>
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon3} alt="" />
 							<p className="text-center md:text-left">
 								To provide both medical and financial relief to the poor and
@@ -254,7 +254,7 @@ const Home = () => {
 							</p>
 						</div>
 
-						<div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start">
+						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
 							<img src={buildingIcon6} alt="" />
 							<p className="text-center md:text-left">
 								To administer the properties of the Trust in achieving the
@@ -266,7 +266,7 @@ const Home = () => {
 				<img
 					src={buildingImage1}
 					alt="Image of volunteers with various old people who are sitting."
-					className=""
+					className="h-full md:w-full"
 				/>
 			</div>
 
@@ -278,7 +278,7 @@ const Home = () => {
 				id="purpose"
 				className="h-full md:h-screen bg-purpose-bg bg-no-repeat bg-bottom bg-[length:300%] md:bg-cover flex justify-center pb-64"
 			>
-				<div className="w-full md:w-2/3 flex flex-col items-center mt-12 md:mt-24 gap-4 md:gap-8">
+				<div className="w-full md:w-3/4 xl:w-2/3 flex flex-col items-center mt-12 md:mt-24 gap-4 xl:gap-8">
 					<img
 						src={purposeIcon}
 						alt="Icon showing two sets of leaves"
@@ -287,10 +287,10 @@ const Home = () => {
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
 						ಉದ್ದೇಶ | <em className="font-medium italic">PURPOSE</em>
 					</h6>
-					<h4 className="font-cormorant font-medium text-grey md:text-[#003a3e] text-2xl md:text-3xl">
+					<h4 className="font-cormorant font-medium text-grey md:text-[#003a3e] text-2xl md:text-4xl">
 						How do we see <em className="italic">ourselves</em>
 					</h4>
-					<div className="flex flex-col md:flex-row gap-8 md:gap-16 font-cormorant font-normal text-grey text-base md:text-xl text-justify bg-none md:bg-white/50 px-12 md:px-16 py-0 md:py-20 backdrop-blur-0 md:backdrop-blur-sm">
+					<div className="flex flex-col md:flex-row gap-8 xl:gap-16 font-cormorant font-normal text-grey text-base md:text-xl text-justify bg-none md:bg-white/50 px-12 xl:px-16 py-0 md:py-8 xl:py-20 md:mt-16 xl:mt-0 backdrop-blur-0 md:backdrop-blur-sm">
 						<p>
 							We embark on a mission, to light the path for every Divyang soul
 							with the transformative power of education. In this gurukul of
@@ -318,7 +318,7 @@ const Home = () => {
 
 			<div
 				id="currently"
-				className="h-full md:h-screen bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center py-12 md:py-0"
+				className="h-full xl:h-screen bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center py-12 md:py-16 xl:py-0"
 			>
 				<div className="flex flex-col gap-4 md:gap-8 items-center md:items-start">
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
@@ -399,7 +399,7 @@ const Home = () => {
 				className=" relative h-screen bg-creators-bg bg-no-repeat bg-bottom bg-[length:375%] md:bg-cover flex flex-col md:flex-row items-start md:items-end w-full px-8 md:px-24 pt-24 pb-8 md:py-16 justify-between gap-8 md:gap-0"
 			>
 				<div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent z-10"></div>
-				<div className="flex flex-col justify-between h-full md:justify-start gap-4 md:gap-12 w-full md:w-2/5 z-20">
+				<div className="flex flex-col justify-between h-full gap-4 md:gap-12 w-full md:w-3/5 xl:w-2/5 z-20">
 					<h6 className="font-cormorant font-light text-offwhite text-base md:text-xl">
 						ತಯಾರಕರು | <em className="font-medium italic">CREATORS</em>
 					</h6>
