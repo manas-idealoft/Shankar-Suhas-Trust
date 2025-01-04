@@ -418,7 +418,7 @@ const Home = () => {
 					</h4>
 					<div>
 						<h5 className="font-cormorant font-medium text-offwhite text-base md:text-xl">
-							- Ishwara and Shankar Bhat
+							- Ishwara and Ganga Bhat
 						</h5>
 						<p className="font-cormorant font-light text-offwhite text-sm md:text-lg pl-2">
 							Founders, Shankar Suhas Trust
