@@ -266,7 +266,7 @@ const Home = () => {
 				<img
 					src={buildingImage1}
 					alt="Image of volunteers with various old people who are sitting."
-					className="h-full md:w-full"
+					className="h-full md:w-full xl:w-auto"
 				/>
 			</div>
 

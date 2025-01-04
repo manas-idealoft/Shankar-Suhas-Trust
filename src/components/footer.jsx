@@ -3,27 +3,27 @@ import { logo, arrow } from "../assets";
 
 const Footer = () => {
 	return (
-		<div className="px-24 py-36 flex justify-between bg-beige">
-			<div className="flex flex-col justify-between">
+		<div className="px-8 md:px-24 py-20 md:py-36 gap-20 md:gap-0 flex flex-col md:flex-row justify-between bg-beige">
+			<div className="flex flex-col justify-between gap-8">
 				<Link to="/">
 					<img src={logo} alt="Logo" className="w-12" />
 				</Link>
-				<h6 className="font-cormorant font-medium italic text-4xl text-terracotta">
+				<h6 className="font-cormorant font-medium italic text-3xl md:text-4xl text-terracotta">
 					Shankas Suhas <br />
 					Charitable Trust
 				</h6>
 			</div>
-			<div className="flex flex-col gap-8 items-end">
-				<p className="text-xl font-cormorant font-normal text-grey">
+			<div className="flex flex-col gap-6 md:gap-8 items-start md:items-end">
+				<p className="text-base md:text-xl font-cormorant font-normal text-grey">
 					Contact us or visit us directly:
 				</p>
 				<Link to="/contribute">
-					<div className="flex items-center gap-2 font-cormorant font-medium text-2xl text-terracotta">
+					<div className="flex items-center gap-2 font-cormorant font-medium text-lg md:text-2xl text-terracotta">
 						<p>Contact</p>
 						<img src={arrow} alt="arrow" className="w-4" />
 					</div>
 				</Link>
-				<p className="text-2xl font-cormorant font-normal text-grey text-right">
+				<p className="text-lg md:text-2xl font-cormorant font-normal text-grey text-left md:text-right">
 					4, Parthasarathynagara,
 					<br />
 					Dasankoppal Gate, Bogadi,
