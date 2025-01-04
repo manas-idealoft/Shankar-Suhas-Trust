@@ -3,8 +3,14 @@ import arrow from "./Arrow-Right.svg"
 import arrowWhite from "./Arrow-Right-White.svg";
 import arrowBlack from "./Arrow-Right-Black.svg";
 import arrowDown from "./Arrow-icon-down.svg"
-import buildingIcon from "./Building-Icon.svg"
+import buildingIconMain from "./Building-Icon.svg"
 import buildingImage1 from "./Building-Image-1.png";
+import buildingIcon1 from "./Building-Icon-1.svg";
+import buildingIcon2 from "./Building-Icon-2.svg";
+import buildingIcon3 from "./Building-Icon-3.svg";
+import buildingIcon4 from "./Building-Icon-4.svg";
+import buildingIcon5 from "./Building-Icon-5.svg";
+import buildingIcon6 from "./Building-Icon-6.svg";
 import chevronDown from "./Chevron-down.svg"
 import chevronUp from "./Chevron-up.svg";
 import communityIcon from "./Community-icon.svg"
@@ -47,8 +53,14 @@ export {
 	arrowWhite,
 	arrowBlack,
 	arrowDown,
-	buildingIcon,
+	buildingIconMain,
 	buildingImage1,
+	buildingIcon1,
+	buildingIcon2,
+	buildingIcon3,
+	buildingIcon4,
+	buildingIcon5,
+	buildingIcon6,
     chevronDown,
     chevronUp,
 	communityIcon,

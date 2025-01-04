@@ -38,7 +38,7 @@ const HeroImageScroll = () => {
 	}, []); // Use React's useEffect to run once after component mount
 
 	return (
-		<div className="scroller w-full">
+		<div className="scroller w-full h-fit md:h-full xl:h-fit">
 			<div className="scroller_inner">
 				<img src={heroImage1} alt="" className="h-full" />
 				<img src={heroImage2} alt="" className="h-full"/>
