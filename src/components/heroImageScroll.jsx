@@ -30,7 +30,7 @@ const HeroImageScroll = () => {
 		<div className="w-full h-[300px] md:h-[400px] xl:h-[500px] overflow-hidden">
 			<Swiper
 				spaceBetween={10} // Remove unwanted gaps
-				slidesPerView="3" // Allows natural width
+				slidesPerView={4}
 				speed={2000} // Controls smooth scrolling speed
 				autoplay={{
 					delay: 0,
