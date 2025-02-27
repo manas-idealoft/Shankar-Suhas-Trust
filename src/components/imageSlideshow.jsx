@@ -23,12 +23,12 @@ import "swiper/css/thumbs";
 import "swiper/css/autoplay";
 
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ImageSlideshow = () => {
-		const [thumbsSwiper, setThumbsSwiper] = useState(null);
+	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeIndex, setActiveIndex] = useState(0);
-	
+
 	const images = [
 		originImage1,
 		originImage2,
@@ -44,6 +44,13 @@ const ImageSlideshow = () => {
 		originImage12,
 		originImage13,
 	];
+
+	// Shift thumbnails so active image is always first
+	useEffect(() => {
+		if (thumbsSwiper) {
+			thumbsSwiper.slideTo(activeIndex);
+		}
+	}, [activeIndex, thumbsSwiper]);
 
 	return (
 		<div className="relative w-full h-full flex flex-col gap-4">
@@ -78,21 +85,24 @@ const ImageSlideshow = () => {
 				onSwiper={setThumbsSwiper}
 				spaceBetween={6}
 				breakpoints={{
-					320: { slidesPerView: 4 },
-					640: { slidesPerView: 6 },
-					1024: { slidesPerView: 12 },
+					320: { slidesPerView: 4.5 },
+					640: { slidesPerView: 6.5 },
+					1024: { slidesPerView: 8.5 },
+					1280:{slidesPerView:11.5}
+
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
+				loop={true}
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="w-full h-28"
+				className="w-full h-20 md:h-24 lg:h-28"
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className="cursor-pointer">
 						<img
 							src={image}
 							alt={`Thumbnail ${index + 1}`}
-							className={`w-24 h-24 object-cover rounded-md transition-all duration-300 ${
+							className={`w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 object-cover rounded-md transition-all duration-300 ${
 								index === activeIndex
 									? "opacity-100 border-2 border-brown scale-100"
 									: "opacity-60 scale-90"

@@ -86,15 +86,36 @@ html {
 }
 
 .swiper-button-next::after, .swiper-button-prev::after {
- @apply bg-terracotta/75;
-    font-size: 28px !important;
-      font-weight:900 !important;
-  padding: 12px!important;
+  @apply bg-terracotta/75;
+  font-size: 12px !important; /* Default size */
+  padding: 10px !important;
   scale: 90% !important;
 }
 
 .swiper-button-next:hover::after, .swiper-button-prev:hover::after {
- @apply bg-terracotta;
+  @apply bg-terracotta;
   transition: ease-in 0.2s;
-    scale: 100% !important;
+  scale: 100% !important;
+}
+
+
+/* Medium screens (md) */
+@screen md {
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 20px !important;
+  }
+}
+
+/* Large screens (lg) */
+@screen lg {
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 36px !important;
+  }
+}
+
+/* Extra Large screens (xl) */
+@screen xl {
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 40px !important;
+  }
 }
