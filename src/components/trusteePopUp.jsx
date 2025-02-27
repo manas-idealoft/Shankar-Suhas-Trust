@@ -58,49 +58,66 @@ const TrusteePopUp = ({ isOpen, onClose }) => {
 
 	return (
 		<div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-50">
-			<div className="flex flex-col items-center justify-start max-h-[90%] max-w-[90%] bg-beige rounded-lg shadow-lg p-6 gap-8">
+			<div className="flex flex-col items-center justify-start max-h-[90%] max-w-[90%] bg-beige rounded-lg shadow-lg p-6 gap-4 md:gap-8">
 				{/* Close Button */}
 				<div className="w-full flex justify-end">
 					<button
 						onClick={onClose}
 						className="p-2 hover:scale-125 transition-transform ease-in"
 					>
-						<img src={crossIcon} alt="close" className="w-4" />
+						<img src={crossIcon} alt="close" className="w-3 md:w-4" />
 					</button>
 				</div>
 
 				{/* Title and Navigation */}
-				<div className="w-full flex justify-between px-12">
-					<img src={trusteesIcon} alt="Trustees Icon" className="w-12" />
-					<div className="flex gap-4">
+				<div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-2 md:gap-4 lg:gap-8 px-0 md:px-8 lg:px-12">
+					<div className="flex gap-2 items-center">
+						<img
+							src={trusteesIcon}
+							alt="Trustees Icon"
+							className="w-8 md:w-12"
+						/>
+						<h2 className="font-cormorant font-medium text-brown text-2xl md:text-3xl">
+							Trustees
+						</h2>
+					</div>
+					<div className="flex gap-8 md:gap-4 justify-between lg:justify-end w-full">
 						<button
 							ref={prevRef}
-							className="group p-2 w-12 h-12 bg-offwhite/95 hover:bg-offwhite rounded-full flex items-center justify-center transition-all"
+							className="group p-2 w-8 md:w-12 h-8 md:h-12 bg-offwhite/95 hover:bg-offwhite rounded-full flex items-center justify-center transition-all"
 						>
 							<img
 								src={arrowLeft}
 								alt="Prev"
-								className="w-4 transition-all group-hover:w-5"
+								className="w-3 md:w-4 transition-all group-hover:w-4 md:group-hover:w-5"
 							/>
 						</button>
 						<button
 							ref={nextRef}
-							className="group p-2 w-12 h-12 bg-offwhite/95 hover:bg-offwhite rounded-full flex items-center justify-center transition-all"
+							className="group p-2 w-8 md:w-12 h-8 md:h-12 bg-offwhite/95 hover:bg-offwhite rounded-full flex items-center justify-center transition-all"
 						>
 							<img
 								src={arrowRight}
 								alt="Next"
-								className="w-4 transition-all group-hover:w-5"
+								className="w-3 md:w-4 transition-all group-hover:w-4 md:group-hover:w-5"
 							/>
 						</button>
 					</div>
 				</div>
 
 				{/* Swiper Carousel */}
-				<div className="px-12 pb-12 w-full">
+				<div className="px-0 md:px-8 lg:px-12 pb-12 w-full">
 					<Swiper
-						slidesPerView={3.5}
-						spaceBetween={15}
+						breakpoints={{
+							320: {
+								spaceBetween: 10,
+								slidesPerView: 1.5,
+							},
+							1280: {
+								spaceBetween: 15,
+								slidesPerView: 3.5,
+							},
+						}}
 						freeMode={true}
 						loop={true}
 						navigation={{
@@ -116,14 +133,16 @@ const TrusteePopUp = ({ isOpen, onClose }) => {
 					>
 						{trustees.map((trustee, index) => (
 							<SwiperSlide key={index}>
-								<div className="flex flex-col items-start gap-4 font-cormorant font-normal text-grey rounded-xl px-6 py-8">
+								<div className="flex flex-col items-start gap-4 font-cormorant font-normal text-grey rounded-xl px-2 lg:px-6 py-2 md:py-8">
 									<img
 										src={trustee.img}
 										alt={trustee.name}
 										className="h-full w-full object-cover rounded-lg"
 									/>
-									<h3 className="text-3xl">{trustee.name}</h3>
-									<p className="italic text-lg">{trustee.description}</p>
+									<h3 className="text-xl md:text-3xl">{trustee.name}</h3>
+									<p className="italic text-base md:text-lg max-h-40 md:max-h-none pr-2  overflow-scroll  md:overflow-auto">
+										{trustee.description}
+									</p>
 								</div>
 							</SwiperSlide>
 						))}

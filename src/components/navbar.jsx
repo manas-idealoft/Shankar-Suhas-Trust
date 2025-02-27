@@ -52,7 +52,7 @@ const Navbar = () => {
 			{/* Mobile Dropdown Menu (Positioned Below the Cross) */}
 			{toggle && (
 				<div
-					className="absolute top-28 right-8 bg-white shadow-lg rounded-lg px-6 py-4 flex flex-col gap-4 transition-all duration-300"
+					className="absolute top-28 right-8 bg-white shadow-lg rounded-lg px-6 py-4 flex flex-col justify-start gap-4 transition-all duration-300"
 					style={{ zIndex: 40 }}
 				>
 					<button
@@ -60,13 +60,13 @@ const Navbar = () => {
 							setShowPopup(true);
 							setToggle(false); // Close menu when opening popup
 						}}
-						className="text-terracotta text-lg font-medium hover:underline w-full"
+						className="text-terracotta font-cormorant text-lg font-medium hover:underline w-full"
 					>
 						Trustees
 					</button>
 					<Link to="/contribute" onClick={() => setToggle(false)}>
 						<div className="flex items-center gap-2 py-2 px-6 bg-white rounded-lg border border-terracotta">
-							<p className="text-terracotta text-lg">Contribute</p>
+							<p className="text-terracotta font-cormorant font-medium text-lg">Contribute</p>
 							<img src={arrowRight} alt="arrow" className="w-4" />
 						</div>
 					</Link>

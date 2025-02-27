@@ -27,10 +27,22 @@ const HeroImageScroll = () => {
 	];
 
 	return (
-		<div className="w-full h-[300px] md:h-[400px] xl:h-[500px] overflow-hidden">
+		<div className="px-8 md:px-24 xl:px-0 w-full h-[300px] md:h-[400px] xl:h-[500px] overflow-hidden">
 			<Swiper
-				spaceBetween={10} // Remove unwanted gaps
-				slidesPerView={4}
+				breakpoints={{
+					320: {
+						spaceBetween: 10,
+						slidesPerView: 1.5,
+					},
+					768: {
+						spaceBetween: 10,
+						slidesPerView: 2,
+					},
+					1280: {
+						spaceBetween: 5,
+						slidesPerView: 4,
+					},
+				}}
 				speed={2000} // Controls smooth scrolling speed
 				autoplay={{
 					delay: 0,
