@@ -92,10 +92,7 @@ const handleToggle = (index) => {
 					<ImageSlideshow />
 				</div>
 			</div>
-			<div
-				id="contribute"
-				className="h-full py-8 xl:py-24 px-8 md:px-24"
-			>
+			<div id="contribute" className="h-full py-16 xl:py-24 px-8 md:px-24">
 				<div className="flex gap-5 ">
 					<h6 className="font-cormorant font-light text-terracotta text-base xl:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">CONTRIBUTE</em>
