@@ -1,5 +1,6 @@
 import logo from "./Logo.svg"
-import arrow from "./Arrow-Right.svg"
+import arrowLeft from "./Arrow-Left.svg";
+import arrowRight from "./Arrow-Right.svg";
 import arrowWhite from "./Arrow-Right-White.svg";
 import arrowBlack from "./Arrow-Right-Black.svg";
 import arrowDown from "./Arrow-icon-down.svg"
@@ -44,12 +45,17 @@ import purposeIcon from "./Purpose-icon.svg";
 import quoteMarkIcon from "./Quote-Mark-Icon.svg";
 import statusIcon from "./Status-icon.svg";
 import trusteesIcon from "./Trustees-icon.svg";
-import trusteePlaceholder from "./trustee-placeholder.png"
+import trustee1 from "./trustee1.png";
+import trustee2 from "./trustee2.png";
+import trustee3 from "./trustee3.png";
+import trustee4 from "./trustee4.png";
+import trustee5 from "./trustee5.png";
 import zoomIcon from "./Zoom-icon.svg";
 
 export {
 	logo,
-	arrow,
+	arrowLeft,
+	arrowRight,
 	arrowWhite,
 	arrowBlack,
 	arrowDown,
@@ -94,6 +100,10 @@ export {
 	quoteMarkIcon,
 	statusIcon,
     trusteesIcon,
-    trusteePlaceholder,
+	trustee1,
+	trustee2,
+	trustee3,
+	trustee4,
+	trustee5,
     zoomIcon,
 };

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
-	arrow,
+	arrowRight,
 	arrowWhite,
 	buildingIcon1,
 	buildingIcon2,
@@ -12,15 +12,22 @@ import {
 	buildingIconMain,
 	buildingImage1,
 	communityIcon,
-	mapIcon,
+	heroImage3,
+	heroImage6,
+	heroImage7,
 	purposeIcon,
 	quoteMarkIcon,
-	statusIcon,
-	zoomIcon,
 } from "../assets";
-import { HeroImageScroll } from "../components";
+import { HeroImageScroll, TrusteePopUp } from "../components";
 
 const Home = () => {
+	const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+	// Function to open popup
+	const openPopup = () => setIsPopupOpen(true);
+	// Function to close popup
+	const closePopup = () => setIsPopupOpen(false);
+
 	const bgClasses = [
 		"bg-com-section-1",
 		"bg-com-section-2",
@@ -45,30 +52,31 @@ const Home = () => {
 				className=" h-screen md:h-svh flex flex-col gap-6 md:gap-16 xl:justify-between pb-4 md:pb-28 pt-12 md:pt-24 xl:pb-20"
 			>
 				<div className="flex flex-col xl:flex-row gap-4 md:gap-12 xl:justify-between px-8 md:px-24 pt-24 font-cormorant text-grey">
-					<div className="font-medium text-2xl md:text-4xl w-full xl:w-1/3 text-terracotta">
-						A Community of Care: <br />
-						Empowering Divyang,
-						<br />
-						Elders, and Beyond
+					<div className="font-normal text-2xl md:text-4xl w-full xl:w-1/3 text-terracotta">
+						Nurturing Futures: <br />
+						An Inclusive School and <br />
+						Community for Every Learner
 					</div>
 					<div className="w-full md:w-2/3 xl:w-2/3 flex flex-col xl:flex-row gap-4 md:gap-8 xl:gap-20">
 						<div className="w-full xl:w-7/12 text-base md:text-xl font-light">
-							A trust that has made significant strides in fulfilling its
-							mission. It has established an{" "}
-							<em className="italic font-semibold">old age home</em> in Mysore,
-							providing shelter and care to a number of elderly residents.
-							Additionally, the trust is actively engaged in the{" "}
-							<em className="italic font-semibold">
-								construction of a school that will cater to students from all
-								backgrounds,
+							The Shankar Suhas Trust is dedicated to expanding access to&nbsp;
+							<em className="italic font-medium">
+								education for the underserved.{" "}
+							</em>
+							It is actively building an inclusive school to empower students of
+							all backgrounds, while also fostering opportunities for{" "}
+							<em className="italic font-medium">
+								skill development and holistic learning.
 							</em>{" "}
-							including those with disabilities.
 						</div>
 						<div className="hidden md:block w-full xl:w-5/12 text-base md:text-xl font-light">
-							If you share the vision of a compassionate and inclusive society,
-							please consider supporting the
-							<em className="italic font-semibold">Shankar Suhas Trust</em> by
-							donating your time or resources.
+							The Trust has also established an old age home in Mysuru,
+							offering&nbsp;
+							<em className="italic font-semibold">
+								shelter and care to elderly residents.
+							</em>{" "}
+							Join us in creating a more inclusive future by supporting the
+							Trust with your time or resources.
 						</div>
 					</div>
 				</div>
@@ -150,9 +158,9 @@ const Home = () => {
 
 			<div
 				id="status"
-				className="h-screen bg-status-bg bg-no-repeat bg-center bg-cover flex items-center justify-center"
+				className="h-screen bg-status-bg bg-no-repeat bg-center bg-cover flex flex-col px-24 items-center justify-center gap-24"
 			>
-				<div className="w-full md:w-1/2 xl:w-1/3 bg-offwhite mx-8 md:mx-0 px-8 md:px-16 py-8 md:py-16 flex flex-col items-center justify-between h-fit gap-8 md:gap-12 xl:gap-0 xl:h-2/3">
+				{/* <div className="w-full md:w-1/2 xl:w-1/3 bg-offwhite mx-8 md:mx-0 px-8 md:px-16 py-8 md:py-16 flex flex-col items-center justify-between h-fit gap-8 md:gap-12 xl:gap-0 xl:h-2/3">
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
 						ಸ್ಥಿತಿ | <em className="font-medium italic">STATUS</em>
 					</h6>
@@ -184,6 +192,34 @@ const Home = () => {
 						</p>
 						<img src={zoomIcon} alt="Zoom Icon" className="w-3 md:w-6" />
 					</a>
+				</div> */}
+
+				<div className="flex justify-between w-full items-start">
+					<div className="flex flex-col items-center xl:items-start w-5/12">
+						<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl text-center xl:text-start">
+							ಕಲಿಕೆ |<em className="font-medium italic">LEARNING</em>
+						</h6>
+						<h4 className="font-cormorant font-normal text-grey text-2xl md:text-4xl text-center xl:text-start">
+							<em className="italic">A School for All: </em> Learning with{" "}
+							<br />
+							Dignity, Growth with Inclusion
+						</h4>
+					</div>
+					<div className="w-full xl:w-6/12 text-base md:text-xl font-light font-cormorant">
+						The Shankar Suhas Trust is building an&nbsp;
+						<em className="italic font-medium">inclusive school </em>
+						where education transcends barriers. Rooted in{" "}
+						<em className="italic font-medium">sneh (affection)</em> and{" "}
+						<em className="italic font-medium">seva (service),</em> this space
+						welcomes children from all backgrounds, ensuring Divyang students
+						and underserved communities receive equal opportunities to learn and
+						grow.
+					</div>
+				</div>
+				<div className="flex w-full justify-between">
+					<img src={heroImage3} alt="" />
+					<img src={heroImage7} alt="" />
+					<img src={heroImage6} alt="" />
 				</div>
 			</div>
 
@@ -288,26 +324,32 @@ const Home = () => {
 						ಉದ್ದೇಶ | <em className="font-medium italic">PURPOSE</em>
 					</h6>
 					<h4 className="font-cormorant font-medium text-grey md:text-[#003a3e] text-2xl md:text-4xl">
-						How do we see <em className="italic">ourselves</em>
+						A Tapestry of&nbsp;
+						<em className="italic">Inclusion and Care</em>
 					</h4>
-					<div className="flex flex-col md:flex-row gap-8 xl:gap-16 font-cormorant font-normal text-grey text-base md:text-xl text-justify bg-none md:bg-white/50 px-12 xl:px-16 py-0 md:py-8 xl:py-20 md:mt-16 xl:mt-0 backdrop-blur-0 md:backdrop-blur-sm">
-						<p>
-							We embark on a mission, to light the path for every Divyang soul
-							with the transformative power of education. In this gurukul of
-							inclusivity, we empower every individual, regardless of their
-							challenges, through compassion, acceptance, and guidance. Every
-							mind here is unique, and every dream is possible with the strength
-							of community and a commitment to learning.
-						</p>
-						<div className="hidden md:block w-4 h-full divider"></div>
-						<p>
-							In the spirit of ancient Indian wisdom, we dream of creating a
-							humble sanctuary—a true aangan—where our elders are not just cared
-							for but deeply cherished. Here, every wrinkle tells a story, every
-							laugh is a blessing, and every soul is honored with respect. This
-							vision is more than a place; it is a space of warmth, joy, and
-							dignity, where age is not a burden but a treasure.
-						</p>
+					<div className="flex flex-col md:flex-row gap-8 font-cormorant font-normal text-grey text-base md:text-xl text-justify bg-none md:bg-white/50 px-12 xl:px-16 py-0 md:py-8 xl:py-16 md:mt-16 xl:mt-0 backdrop-blur-0 md:backdrop-blur-sm">
+						<div className="w-1/2">
+							<p>
+								We walk the path of seva, shaping a future where education
+								becomes the bridge to empowerment. This gurukul of inclusivity
+								nurtures every learner—Divyang and underserved alike—through
+								compassion, acceptance, and knowledge. Every mind is unique, and
+								every dream is within reach when supported by a community that
+								uplifts and nurtures.
+							</p>
+						</div>
+						<div className="hidden md:block w-1 h-full divider"></div>
+						<div className="w-1/2">
+							<p>
+								Rooted in ancient Indian wisdom, we envision a true aangan—a
+								sanctuary where our elders are honored, their wisdom cherished,
+								and their presence celebrated.
+							</p>
+							<p className="pt-4">
+								This is more than a mission; it is a movement to create and grow
+								a space where learning, dignity, and belonging thrive.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -320,16 +362,13 @@ const Home = () => {
 				id="currently"
 				className="h-full xl:h-screen bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center py-12 md:py-16 xl:py-0"
 			>
-				<div className="flex flex-col gap-4 md:gap-8 items-center md:items-start">
+				<div className="flex flex-col gap-4 md:gap-6 items-center md:items-start">
 					<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
 						ಇದೀಗ | <em className="font-medium italic">CURRENTLY</em>
 					</h6>
-					<h4 className="font-cormorant font-normal text-grey text-2xl md:text-3xl">
-						Where we are{" "}
-						<em className=" font-light italic">
-							<br className="hidden md:block" />
-							right now
-						</em>
+					<h4 className="font-cormorant font-normal text-grey text-2xl md:text-4xl">
+						Details to&nbsp;
+						<em className=" font-light italic">join in this deed</em>
 					</h4>
 					<p className="font-cormorant font-normal text-grey text-base md:text-xl">
 						The Trust is having exemptions <br className="hidden md:block" />
@@ -337,42 +376,42 @@ const Home = () => {
 					</p>
 					<div className="flex flex-col font-cormorant text-base md:text-xl italic px-8 md:px-0">
 						<div className="flex w-full">
-							<div className="border-l border-t border-grey w-1/3 py-2 px-2 font-medium">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Income Tax Act:
 							</div>
-							<div className="border-t border-x border-grey w-2/3 py-2 px-2 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
 								80G
 							</div>
 						</div>
 						<div className="flex">
-							<div className="border-l border-t border-grey w-1/3 py-2 px-2 font-medium">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Registered Under:
 							</div>
-							<div className="border-t border-x border-grey w-2/3 py-2 px-2 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
 								“Darpan” Ministry of Planning, Government of India
 							</div>
 						</div>
 						<div className="flex">
-							<div className="border-l border-t border-grey w-1/3 py-2 px-2 font-medium">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Unique ID:
 							</div>
-							<div className="border-t border-x border-grey w-2/3 py-2 px-2 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
 								KA/2024/0427228dated 25-6-2024
 							</div>
 						</div>
 						<div className="flex">
-							<div className="border-l border-t border-grey w-1/3 py-2 px-2 font-medium">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Trust&apos;s C.S.R Registr. Number
 							</div>
-							<div className="border-t border-x border-grey w-2/3 py-2 px-2 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
 								CSR00076779
 							</div>
 						</div>
 						<div className="flex">
-							<div className="border-l border-y border-grey w-1/3 py-2 px-2 font-medium">
+							<div className="border-l border-y border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								C.S.R Number Registr. At
 							</div>
-							<div className="border border-grey w-2/3 py-2 px-2 font-semibold text-terracotta">
+							<div className="border border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
 								Office of the Registrar of the Companies, Ministry of Corporate
 								Affairs, Government of India.
 							</div>
@@ -398,42 +437,47 @@ const Home = () => {
 				id="creators"
 				className=" relative h-screen bg-creators-bg bg-no-repeat bg-bottom bg-[length:375%] md:bg-cover flex flex-col md:flex-row items-start md:items-end w-full px-8 md:px-24 pt-24 pb-8 md:py-16 justify-between gap-8 md:gap-0"
 			>
-				<div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent z-10"></div>
-				<div className="flex flex-col justify-between h-full gap-4 md:gap-12 w-full md:w-3/5 xl:w-2/5 z-20">
-					<h6 className="font-cormorant font-light text-offwhite text-base md:text-xl">
-						ತಯಾರಕರು | <em className="font-medium italic">CREATORS</em>
-					</h6>
-					<div className="flex flex-col gap-4 md:gap-12">
+				<div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/10 to-transparent z-10"></div>
+				<div className="flex flex-col justify-end h-full gap-4 md:gap-12 w-full md:w-1/3 z-20">
+					<div className="flex flex-col gap-4 md:gap-6 bg-white/20 backdrop-blur-sm p-12">
+						<h6 className="font-cormorant font-light text-offwhite text-base md:text-xl">
+							ತಯಾರಕರು | <em className="font-medium italic">CREATORS</em>
+						</h6>
 						<img
-						src={quoteMarkIcon}
-						alt="Icon showing double quote mark"
-						className="w-24 md:w-44"
-					/>
-					<h4 className="font-cormorant font-light text-offwhite text-2xl md:text-5xl leading-normal">
-						We aim to administer the properties of the Trust in achieving the
-						objectives and
-						<em className="italic">
-							&nbsp;make this world a more accessible place to live
-						</em>
-					</h4>
-					<div>
-						<h5 className="font-cormorant font-medium text-offwhite text-base md:text-xl">
-							- Ishwara and Ganga Bhat
-						</h5>
-						<p className="font-cormorant font-light text-offwhite text-sm md:text-lg pl-2">
-							Founders, Shankar Suhas Trust
-						</p>
-					</div></div>
+							src={quoteMarkIcon}
+							alt="Icon showing double quote mark"
+							className="w-24"
+						/>
+						<h4 className="font-cormorant font-light text-offwhite text-2xl leading-normal">
+							We aim to administer the properties of the Trust in achieving the
+							objectives and
+							<em className="italic">
+								&nbsp;make this world a more accessible place to live
+							</em>
+						</h4>
+						<div>
+							<h5 className="font-cormorant font-medium text-offwhite text-base md:text-xl">
+								- Ishwara and Ganga Bhat
+							</h5>
+							<p className="font-cormorant font-light text-offwhite text-sm md:text-lg pl-2">
+								Founders, Shankar Suhas Trust
+							</p>
+						</div>
+					</div>
 				</div>
-				<Link
-					to="/trustees"
+				<button
 					className="flex py-2 md:py-4 px-4 md:px-8 bg-offwhite rounded-md md:rounded-lg w-fit items-center gap-2 z-20"
+					onClick={openPopup}
 				>
 					<p className="font-cormorant text-terracotta font-normal text-base md:text-xl">
-						Connect to contribute
+						List of Trustees
 					</p>
-					<img src={arrow} alt="Arrow Icon" className="w-5" />
-				</Link>
+					<img src={arrowRight} alt="Arrow Icon" className="w-5" />
+				</button>
+				{/* Render Popup if isPopupOpen is true */}
+				{isPopupOpen && (
+					<TrusteePopUp isOpen={isPopupOpen} onClose={closePopup} />
+				)}
 			</div>
 
 			{/* Creators Section ends */}

@@ -1,65 +1,83 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { arrow, arrowWhite, crossIcon, hamburgerIcon, logo } from "../assets";
+import { arrowRight, crossIcon, hamburgerIcon, logo } from "../assets";
+import TrusteePopUp from "./trusteePopUp"; // Import popup
 
 const Navbar = () => {
-const [toggle, setToggle] = useState(false)
+	const [toggle, setToggle] = useState(false); // Mobile menu state
+	const [showPopup, setShowPopup] = useState(false); // Trustee popup state
 
 	return (
-		<nav className="px-8 md:px-24 pt-12 pb-4 flex items-center justify-between absolute w-full">
-			<div>
-				<Link to="/">
-					<img src={logo} alt="Logo" className="w-12" />
-				</Link>
-			</div>
-			<ul className="hidden md:flex items-center font-cormorant font-medium text-terracotta text-lg gap-8">
-				<li>
-					<Link to="/trustees">Trustees</Link>
-				</li>
+		<>
+			<nav className="px-8 md:px-24 pt-12 pb-4 flex items-center justify-between absolute w-full z-50">
+				{/* Logo */}
+				<div>
+					<Link to="/">
+						<img src={logo} alt="Logo" className="w-20" />
+					</Link>
+				</div>
 
-				<li>
-					<Link to="/contribute">
-						<div className="flex items-center gap-2 py-3 px-8 bg-white rounded-lg">
-							<p>Contribute</p>
-							<img src={arrow} alt="arrow" className="w-4" />
-						</div>
-					</Link>
-				</li>
-			</ul>
-			<div className="relative flex flex-col md:hidden items-end w-full">
-				<img
-					src={toggle ? crossIcon : hamburgerIcon}
-					alt=""
-					className="w-5 cursor-pointer z-20"
-					onClick={() => setToggle(!toggle)}
-				/>
+				{/* Desktop Menu */}
+				<ul className="hidden md:flex items-center font-cormorant font-medium text-terracotta text-lg gap-8">
+					<li>
+						<button
+							onClick={() => setShowPopup(true)}
+							className="hover:underline"
+						>
+							Trustees
+						</button>
+					</li>
+					<li>
+						<Link to="/contribute">
+							<div className="flex items-center gap-2 py-3 px-8 bg-white rounded-lg">
+								<p>Contribute</p>
+								<img src={arrowRight} alt="arrow" className="w-4" />
+							</div>
+						</Link>
+					</li>
+				</ul>
+
+				{/* Mobile Menu Button (Hamburger / Cross) */}
+				<div className="md:hidden z-50 relative">
+					<button onClick={() => setToggle(!toggle)}>
+						<img
+							src={toggle ? crossIcon : hamburgerIcon}
+							alt="menu"
+							className={`${toggle ? "w-4" : "w-6"}`}
+						/>
+					</button>
+				</div>
+			</nav>
+
+			{/* Mobile Dropdown Menu (Positioned Below the Cross) */}
+			{toggle && (
 				<div
-					className={`absolute w-auto z-10 p-4 bg-white font-cormorant font-medium text-base mt-8 rounded-lg border border-terracotta flex flex-col gap-4 ${
-						toggle
-							? "block"
-							: "hidden"
-					}`}
+					className="absolute top-28 right-8 bg-white shadow-lg rounded-lg px-6 py-4 flex flex-col gap-4 transition-all duration-300"
+					style={{ zIndex: 40 }}
 				>
-					<Link to="/trustees" onClick={() => setToggle(!toggle)}>
-						Trustees
-					</Link>
-					<Link
-						to="/contribute"
-						onClick={() => setToggle(!toggle)}
-						className="block"
+					<button
+						onClick={() => {
+							setShowPopup(true);
+							setToggle(false); // Close menu when opening popup
+						}}
+						className="text-terracotta text-lg font-medium hover:underline w-full"
 					>
-						<div className="flex items-center gap-2 py-2 px-4 bg-terracotta rounded-lg text-white">
-							<p>Contribute</p>
-							<img
-								src={arrowWhite}
-								alt="arrow"
-								className="w-4 h-auto object-contain"
-							/>
+						Trustees
+					</button>
+					<Link to="/contribute" onClick={() => setToggle(false)}>
+						<div className="flex items-center gap-2 py-2 px-6 bg-white rounded-lg border border-terracotta">
+							<p className="text-terracotta text-lg">Contribute</p>
+							<img src={arrowRight} alt="arrow" className="w-4" />
 						</div>
 					</Link>
 				</div>
-			</div>
-		</nav>
+			)}
+
+			{/* Render the popup if showPopup is true */}
+			{showPopup && (
+				<TrusteePopUp isOpen={showPopup} onClose={() => setShowPopup(false)} />
+			)}
+		</>
 	);
 };
 

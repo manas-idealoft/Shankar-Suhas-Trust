@@ -1,8 +1,34 @@
-import { useState, useEffect } from "react";
-import { originImage1, originImage2,originImage3,originImage4,originImage5,originImage6,originImage7,originImage8,originImage9,originImage10,originImage11,originImage12,originImage13, } from "../assets";
+import {
+	originImage1,
+	originImage2,
+	originImage3,
+	originImage4,
+	originImage5,
+	originImage6,
+	originImage7,
+	originImage8,
+	originImage9,
+	originImage10,
+	originImage11,
+	originImage12,
+	originImage13,
+} from "../assets";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import "swiper/css/autoplay";
+
+import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
+import { useState } from "react";
 
 const ImageSlideshow = () => {
-	// Hardcoded list of image URLs
+		const [thumbsSwiper, setThumbsSwiper] = useState(null);
+	const [activeIndex, setActiveIndex] = useState(0);
+	
 	const images = [
 		originImage1,
 		originImage2,
@@ -19,53 +45,62 @@ const ImageSlideshow = () => {
 		originImage13,
 	];
 
-	const [activeIndex, setActiveIndex] = useState(0);
-
-	// Automatic cycling of images
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-		}, 3000);
-
-		return () => clearInterval(interval); // Clean up on component unmount
-	}, [images.length]);
-
-	const handleThumbnailClick = (index) => {
-		setActiveIndex(index);
-	};
-
 	return (
-		<div className="flex flex-col items-center w-full h-full py-12">
-			{/* Main Display */}
-			<div className="relative w-full h-fit flex justify-center items-center">
-				{/* Thumbnails on top of the main image */}
-				<div className="absolute bottom-8 flex overflow-x-scroll space-x-4 w-full justify-center px-4 scrollbar-hide z-10 p-2 rounded-lg">
-					{images.map((image, index) => (
-						<div
-							key={index}
-							className={`flex-shrink-0 cursor-pointer rounded-lg border-2 ${
-								index === activeIndex
-									? "border-terracotta scale-110 brightness-75"
-									: "border-transparent"
-							} transition-all duration-200`}
-							onClick={() => handleThumbnailClick(index)}
-						>
-							<img
-								src={image}
-								alt={`Thumbnail ${index + 1}`}
-								className="h-24 w-24 object-cover rounded-md "
-							/>
-						</div>
-					))}
-				</div>
+		<div className="relative w-full h-full flex flex-col gap-4">
+			{/* Main Image Swiper */}
+			<Swiper
+				style={{ "--swiper-navigation-color": "#ffffff" }}
+				spaceBetween={10}
+				navigation={true}
+				thumbs={{ swiper: thumbsSwiper }}
+				autoplay={{ delay: 3000, disableOnInteraction: false }}
+				loop={true}
+				modules={[FreeMode, Navigation, Thumbs, Autoplay]}
+				className="h-full w-full"
+				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+			>
+				{images.map((image, index) => (
+					<SwiperSlide
+						key={index}
+						className="flex items-center justify-center bg-white"
+					>
+						<img
+							src={image}
+							alt={`Image ${index + 1}`}
+							className="w-full h-full object-cover"
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
 
-				{/* Main Image */}
-				<img
-					src={images[activeIndex]}
-                    alt={`Slide ${activeIndex + 1}`}
-                    className="object-contain w-full"
-                />
-            </div>
+			{/* Thumbnails Overlay */}
+			<Swiper
+				onSwiper={setThumbsSwiper}
+				spaceBetween={6}
+				breakpoints={{
+					320: { slidesPerView: 4 },
+					640: { slidesPerView: 6 },
+					1024: { slidesPerView: 12 },
+				}}
+				freeMode={true}
+				watchSlidesProgress={true}
+				modules={[FreeMode, Navigation, Thumbs]}
+				className="w-full h-28"
+			>
+				{images.map((image, index) => (
+					<SwiperSlide key={index} className="cursor-pointer">
+						<img
+							src={image}
+							alt={`Thumbnail ${index + 1}`}
+							className={`w-24 h-24 object-cover rounded-md transition-all duration-300 ${
+								index === activeIndex
+									? "opacity-100 border-2 border-brown scale-100"
+									: "opacity-60 scale-90"
+							}`}
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
 		</div>
 	);
 };

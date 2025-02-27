@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { logo, arrow } from "../assets";
+import { logo, arrowRight } from "../assets";
 
 const Footer = () => {
 	return (
@@ -20,7 +20,7 @@ const Footer = () => {
 				<Link to="/contribute">
 					<div className="flex items-center gap-2 font-cormorant font-medium text-lg md:text-2xl text-terracotta">
 						<p>Contact</p>
-						<img src={arrow} alt="arrow" className="w-4" />
+						<img src={arrowRight} alt="arrow" className="w-4" />
 					</div>
 				</Link>
 				<p className="text-lg md:text-2xl font-cormorant font-normal text-grey text-left md:text-right">

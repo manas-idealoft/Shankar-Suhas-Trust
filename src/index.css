@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -76,49 +77,24 @@ html {
   font-style: italic;
 }
 
-
-.scroller_inner {
-  padding-block: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  height: 100%;
-}
-
-.scroller[data-animated="true"] {
-  overflow: hidden;
-  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-}
-
-.scroller[data-animated="true"] .scroller_inner {
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: scroll var(--_animation-duration, 40s)
-    var(--_animation-direction, forwards) linear infinite;
-}
-
-.scroller[data-direction="right"] {
-  --_animation-direction: reverse;
-}
-
-.scroller[data-direction="left"] {
-  --_animation-direction: forwards;
-}
-
-.scroller[data-speed="fast"] {
-  --_animation-duration: 20s;
-}
-
-.scroller[data-speed="slow"] {
-  --_animation-duration: 60s;
-}
-
-@keyframes scroll {
-  to {
-    transform: translate(calc(-50% - 0.5rem));
-  }
-}
-
 .divider{
    background: linear-gradient(to bottom,transparent, rgba(0, 0, 0, 0.2) 50%, transparent);
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #ffffff !important;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+ @apply bg-terracotta/75;
+    font-size: 28px !important;
+      font-weight:900 !important;
+  padding: 12px!important;
+  scale: 90% !important;
+}
+
+.swiper-button-next:hover::after, .swiper-button-prev:hover::after {
+ @apply bg-terracotta;
+  transition: ease-in 0.2s;
+    scale: 100% !important;
 }
