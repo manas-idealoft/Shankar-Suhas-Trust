@@ -60,13 +60,19 @@ const Navbar = () => {
 							setShowPopup(true);
 							setToggle(false); // Close menu when opening popup
 						}}
-						className="text-terracotta font-cormorant text-lg font-medium hover:underline w-full"
 					>
-						Trustees
+						<div className="flex items-center gap-2">
+							<p className="text-terracotta font-cormorant font-medium text-lg">
+								Trustees
+							</p>
+							<img src={arrowRight} alt="arrow" className="w-4" />
+						</div>
 					</button>
 					<Link to="/contribute" onClick={() => setToggle(false)}>
-						<div className="flex items-center gap-2 py-2 px-6 bg-white rounded-lg border border-terracotta">
-							<p className="text-terracotta font-cormorant font-medium text-lg">Contribute</p>
+						<div className="flex items-center gap-2">
+							<p className="text-terracotta font-cormorant font-medium text-lg">
+								Contribute
+							</p>
 							<img src={arrowRight} alt="arrow" className="w-4" />
 						</div>
 					</Link>
