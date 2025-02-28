@@ -67,7 +67,7 @@ const handleToggle = (index) => {
 			>
 				<div className="flex flex-col xl:flex-row justify-start xl:justify-between items-start xl:items-end grow-0 gap-4 md:gap-8 xl:gap-0">
 					<div>
-						<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-xl pt-16 md:pt-24">
+						<h6 className="font-cormorant font-light text-terracotta text-lg lg:text-xl pt-16 md:pt-24">
 							ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
 						</h6>
 						<h4 className="font-cormorant font-normal text-terracotta text-2xl md:text-3xl lg:text-5xl">
@@ -94,7 +94,7 @@ const handleToggle = (index) => {
 			</div>
 			<div id="contribute" className="h-full py-16 xl:py-24 px-8 md:px-24">
 				<div className="flex gap-5 ">
-					<h6 className="font-cormorant font-light text-terracotta text-base xl:text-xl">
+					<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">CONTRIBUTE</em>
 					</h6>
 					<img
@@ -114,10 +114,10 @@ const handleToggle = (index) => {
 							</em>
 						</h4>
 						<div className="hidden xl:flex pt-8 md:pt-28 w-full flex-col items-start">
-							<h6 className="font-cormorant font-light text-terracotta text-base md:text-xl">
+							<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
 								ಸಮುದಾಯ |<em className="font-medium italic"> DIRECT CONTACT</em>
 							</h6>
-							<div className="font-cormorant font-normal text-base text-start md:text-xl w-full md:w-2/3 pt-4">
+							<div className="font-cormorant font-normal text-lg text-start md:text-xl w-full md:w-2/3 pt-4">
 								<p>
 									4, Parthasarathynagara, Dasankoppal Gate, Bogadi, Mysuru-570
 									026
@@ -131,7 +131,7 @@ const handleToggle = (index) => {
 					</div>
 					<form
 						onSubmit={handleSubmit}
-						className="font-cormorant text-base md:text-lg xl:text-2xl w-full xl:w-2/3 flex flex-col justify-between gap-8 xl:gap-12"
+						className="font-cormorant text-lg md:text-lg xl:text-2xl w-full xl:w-2/3 flex flex-col justify-between gap-8 xl:gap-12"
 					>
 						<div className="w-full">
 							<label className="">Name</label>
@@ -260,7 +260,7 @@ const handleToggle = (index) => {
 						</div>
 					</div>
 					<div className="w-full xl:w-2/5">
-						<h6 className="font-cormorant font-light text-terracotta text-base xl:text-xl">
+						<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
 							ಪ್ರಶ್ನೆಗಳು | <em className="font-medium italic">QUESTIONS</em>
 						</h6>
 						<h4 className="font-cormorant font-normal text-grey text-2xl md:text-3xl pt-4">

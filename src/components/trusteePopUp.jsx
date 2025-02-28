@@ -106,7 +106,7 @@ const TrusteePopUp = ({ isOpen, onClose }) => {
 				</div>
 
 				{/* Swiper Carousel */}
-				<div className="px-0 md:px-8 lg:px-12 pb-12 w-full">
+				<div className="px-0 md:px-8 lg:px-12 pb-12 w-full overflow-scroll">
 					<Swiper
 						breakpoints={{
 							320: {
@@ -140,7 +140,7 @@ const TrusteePopUp = ({ isOpen, onClose }) => {
 										className="h-full w-full object-cover rounded-lg"
 									/>
 									<h3 className="text-xl md:text-3xl">{trustee.name}</h3>
-									<p className="italic text-base md:text-lg max-h-40 md:max-h-none pr-2  overflow-scroll  md:overflow-auto">
+									<p className="italic text-lg md:text-xl max-h-40 md:max-h-max pr-2  overflow-scroll">
 										{trustee.description}
 									</p>
 								</div>
