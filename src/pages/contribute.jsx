@@ -1,10 +1,7 @@
 import { arrowBlack, arrowDown, chevronDown, chevronUp } from "../assets";
 import { ImageSlideshow } from "../components";
 import { useState } from "react";
-import {
-	mapIcon,
-	zoomIcon,
-} from "../assets";
+
 
 
 
@@ -63,32 +60,20 @@ const handleToggle = (index) => {
 		<div>
 			<div
 				id="origin"
-				className="h-svh md:h-full relative px-8 md:px-24 pt-0 md:pt-20 xl:pt-36 overflow-hidden flex flex-col gap-4 md:gap-8 object-contain justify-center"
+				className="h-svh md:h-full relative px-8 md:px-24 pt-28 md:pt-20 xl:pt-36 overflow-hidden flex flex-col object-contain justify-center"
 			>
-				<div className="flex flex-col xl:flex-row justify-start xl:justify-between items-start xl:items-end grow-0 gap-4 md:gap-8 xl:gap-0">
+				<div className="flex">
 					<div>
 						<h6 className="font-cormorant font-light text-terracotta text-lg lg:text-xl pt-16 md:pt-24">
 							ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
 						</h6>
-						<h4 className="font-cormorant font-normal text-terracotta text-2xl md:text-3xl lg:text-5xl">
+						<h4 className="font-cormorant font-normal text-brown text-2xl md:text-3xl lg:text-5xl">
 							The Heartfelt Journey Behind
 							<br /> This Foundation
 						</h4>
 					</div>
-					<a
-						href="/public/SuhasShankarTrust_Map.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-						className=" flex px-2 md:px-4 py-1 md:py-3 bg-beige items-center gap-2 lg:gap-4 h-fit"
-					>
-						<img src={mapIcon} alt="Map Icon" className="w-3 md:w-5" />
-						<p className="font-cormorant font-medium italic text-sm md:text-lg">
-							A Peek At Our Growing Aangan
-						</p>
-						<img src={zoomIcon} alt="Zoom Icon" className="w-3 md:w-5" />
-					</a>
 				</div>
-				<div className="pt-12 md:pt-6 xl:pt-0">
+				<div className="pt-4 md:pt-6 xl:pt-0">
 					<ImageSlideshow />
 				</div>
 			</div>
@@ -105,7 +90,7 @@ const handleToggle = (index) => {
 				</div>
 				<div className="bg-form-bg flex flex-col xl:flex-row mt-4 lg:mt-8 p-4 pb-12 md:p-12 md:pb-16 xl:pb-20 xl:p-20 gap-8 xl:gap-12 items-center md:items-start ">
 					<div className="w-full xl:w-1/3">
-						<h4 className="font-cormorant font-normal text-start text-terracotta text-2xl lg:text-3xl xl:text-4xl">
+						<h4 className="font-cormorant font-normal text-start text-brown text-2xl lg:text-3xl xl:text-4xl">
 							Get involved with the <br />
 							foundation to{" "}
 							<em className="italic">

@@ -11,6 +11,7 @@ import {
 	buildingIcon6,
 	buildingIconMain,
 	buildingImage1,
+	buildingImage2,
 	communityIcon,
 	heroImage3,
 	heroImage6,
@@ -43,6 +44,14 @@ const Home = () => {
 		return () => clearInterval(interval);
 	}, []);
 
+	const [isLarge, setIsLarge] = useState(window.innerWidth > 1280);
+
+	useEffect(() => {
+		const handleResize = () => setIsLarge(window.innerWidth > 1280);
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	return (
 		<div>
 			{/* Hero Section starts */}
@@ -52,7 +61,7 @@ const Home = () => {
 				className=" h-screen md:h-svh flex flex-col gap-6 md:gap-16 justify-evenly xl:justify-between pb-4 md:pb-28 pt-12 md:pt-24 xl:pb-20"
 			>
 				<div className="flex flex-col xl:flex-row gap-4 md:gap-12 xl:justify-between px-8 md:px-24 pt-24 font-cormorant text-grey">
-					<div className="font-normal text-2xl md:text-4xl w-full xl:w-1/3 text-terracotta">
+					<div className="font-medium text-2xl md:text-4xl w-full xl:w-1/3 text-brown">
 						Nurturing Futures: <br />
 						An Inclusive School and <br />
 						Community for Every Learner
@@ -92,11 +101,11 @@ const Home = () => {
 				className="h-screen md:h-svh flex px-8 md:px-0 justify-center"
 			>
 				<div className="w-full md:w-2/3 xl:w-1/3 flex flex-col justify-center items-start md:items-center ">
-					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
+					<h6 className="font-cormorant font-light text-brown text-lg md:text-xl">
 						ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
 					</h6>
-					<h4 className="font-cormorant font-normal text-terracotta text-2xl md:text-3xl text-start md:text-center">
-						The <em className="italic font-light">Heartfelt Journey</em> <br />{" "}
+					<h4 className="font-cormorant font-medium text-brown text-2xl md:text-3xl text-start md:text-center">
+						The <em className="italic font-medium">Heartfelt Journey</em> <br />{" "}
 						Behind This Foundation
 					</h4>
 					<p className="font-cormorant font-light text-grey text-lg md:text-xl mb-3 mt-6 md:mb-6 md:mt-12 text-start md:text-center">
@@ -130,12 +139,12 @@ const Home = () => {
 				<div
 					className={`block md:hidden h-4/6 w-full bg-cover bg-center transition-all duration-1000 ${bgClasses[currentBg]}`}
 				></div>
-				<div className="w-full h-2/6 md:h-fit md:w-1/2 xl:w-1/3 py-8 md:py-14 px-8 md:px-20 bg-offwhite">
-					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
+				<div className="w-full h-3/6 md:h-fit md:w-1/2 xl:w-1/3 py-8 md:py-14 px-8 md:px-20 bg-offwhite overflow-y-auto">
+					<h6 className="font-cormorant font-light text-brown text-lg md:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">COMMUNITY</em>
 					</h6>
 					<h4 className="font-cormorant font-normal text-grey text-2xl md:text-3xl ">
-						Aangan <em className="italic font-light">of</em> Togetherness
+						Aangan <em className="italic font-normal">of</em> Togetherness
 					</h4>
 					<img
 						src={communityIcon}
@@ -163,7 +172,7 @@ const Home = () => {
 				<div className="flex flex-col xl:flex-row justify-between w-full items-start md:items-center lg:items-start xl:items-center gap-4 md:gap-8">
 					<div className="flex flex-col text-start md:items-center xl:items-start w-full xl:w-5/12 gap-4">
 						<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl text-start md:text-center xl:text-start">
-							ಕಲಿಕೆ |<em className="font-medium italic">LEARNING</em>
+							ಕಲಿಕೆ | <em className="font-medium italic">LEARNING</em>
 						</h6>
 						<h4 className="font-cormorant font-normal text-grey text-2xl md:text-4xl text-start md:text-center xl:text-start">
 							<em className="italic">A School for All: </em>{" "}
@@ -208,81 +217,84 @@ const Home = () => {
 
 			<div
 				id="building"
-				className="h-full bg-terracotta bg-building-bg flex flex-col md:gap-8 xl:gap-0 xl:flex-row w-full justify-between items-center xl:items-start"
+				className="h-full xl:h-svh bg-brown bg-building-bg flex justify-center items-center pt-8 pb-0 px-8 md:px-16 md:py-12 xl:px-24 xl:py-16"
 			>
-				<div className="flex flex-col w-full xl:w-3/4 px-8 md:px-24 xl:pl-24 xl:pr-16 py-12 md:pt-24 xl:py-24 gap-8 md:gap-16 justify-between items-center xl:items-start">
-					<div className="flex flex-col items-center xl:items-start">
-						<h6 className="font-cormorant font-light text-offwhite text-lg md:text-xl text-center xl:text-start">
-							ನಿರ್ಮಿಸಲು |<em className="font-medium italic">BUILDING</em>
-						</h6>
-						<h4 className="font-cormorant font-normal text-offwhite text-2xl md:text-4xl text-center xl:text-start">
-							Weaving Lives, Nurturing
-							<br /> a <em className="italic">Collective Dream</em>
-						</h4>
+				<div className="  h-full w-full object-contain bg-offwhite rounded-lg flex flex-col xl:flex-row justify-center items-center xl:items-start xl:justify-start">
+					<div className=" w-full xl:w-7/12 h-full px-4 md:px-12 py-12 flex flex-col justify-between gap-6 md:gap-12 xl:gap-6 xl:items-start items-center">
+						<div className="flex flex-col gap-3 md:gap-6 xl:items-start items-center">
+							<h6 className="font-cormorant font-light text-brown text-base md:text-lg xl:text-xl text-center xl:text-start">
+								ನಿರ್ಮಿಸಲು | <em className="font-medium italic">BUILDING</em>
+							</h6>
+							<h4 className="font-cormorant font-normal text-brown text-2xl md:text-4xl xl:text-5xl text-center xl:text-start">
+								Weaving Lives, Nurturing
+								<br /> a <em className="italic">Collective Dream</em>
+							</h4>
+							<img
+								src={buildingIconMain}
+								alt="Icon showing a flower with two leaves popping out from the side."
+								className="w-16 md:w-20 xl:w-24"
+							/>
+						</div>
+						<div
+							id="building-pointers"
+							className="font-cormorant font-normal text-grey lg:text-brown text-lg md:text-xl h-fit w-full md:w-3/4 lg:w-full flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-min gap-6"
+						>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon1} alt="" />
+								<p className="text-center lg:text-left">
+									To establish and run a centre for the welfare of old and
+									divyanga, The word divyanga shall include slow-learners,
+									mentally retarded and such other physically disabled people
+									also.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon4} alt="" />
+								<p className="text-center lg:text-left">
+									To establish and run schools, colleges, skill development
+									centers, hostels, libraries etc., and also provide scholarship
+									to poor students for their studies.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon2} alt="" />
+								<p className="text-center lg:text-left">
+									To undertake preservation of environment, including
+									water-shed, forests and wildlife and preservation of
+									monuments, places or objects of artistic or historic interest.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon5} alt="" />
+								<p className="text-center lg:text-left">
+									To undertake rural development work like developing rural
+									schools, roads, environment, organizing medical camps etc.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon3} alt="" />
+								<p className="text-center lg:text-left">
+									To provide both medical and financial relief to the poor and
+									needy.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon6} alt="" />
+								<p className="text-center lg:text-left">
+									To administer the properties of the Trust in achieving the
+									objects mentioned in this Deed.
+								</p>
+							</div>
+						</div>
 					</div>
-					<img
-						src={buildingIconMain}
-						alt="Icon showing a flower with two leaves popping out from the side."
-						className="w-16 md:w-24"
-					/>
-					<div
-						id="building-pointers"
-						className="font-cormorant font-light text-offwhite text-lg md:text-xl h-fit px-2 flex flex-col gap-6 md:grid md:grid-cols-2 md:auto-rows-min md:gap-8"
-					>
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon1} alt="" />
-							<p className="text-center md:text-left">
-								To establish and run a centre for the welfare of old and
-								divyanga, The word divyanga shall include slow-learners,
-								mentally retarded and such other physically disabled people
-								also.
-							</p>
-						</div>
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon4} alt="" />
-							<p className="text-center md:text-left">
-								To establish and run schools, colleges, skill development
-								centers, hostels, libraries etc., and also provide scholarship
-								to poor students for their studies.
-							</p>
-						</div>
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon2} alt="" />
-							<p className="text-center md:text-left">
-								To undertake preservation of environment, including water-shed,
-								forests and wildlife and preservation of monuments, places or
-								objects of artistic or historic interest.
-							</p>
-						</div>
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon5} alt="" />
-							<p className="text-center md:text-left">
-								To undertake rural development work like developing rural
-								schools, roads, environment, organizing medical camps etc.
-							</p>
-						</div>
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon3} alt="" />
-							<p className="text-center md:text-left">
-								To provide both medical and financial relief to the poor and
-								needy.
-							</p>
-						</div>
-
-						<div className="flex flex-col xl:flex-row gap-2 md:gap-4 items-center md:items-start">
-							<img src={buildingIcon6} alt="" />
-							<p className="text-center md:text-left">
-								To administer the properties of the Trust in achieving the
-								objects mentioned in this Deed.
-							</p>
-						</div>
+					<div className="w-full xl:w-5/12 h-full flex items-center justify-end overflow-hidden">
+						<img
+							src={isLarge ? buildingImage1 : buildingImage2}
+							alt=""
+							className="h-full w-full xl:w-auto object-cover"
+						/>
 					</div>
 				</div>
-				<img
-					src={buildingImage1}
-					alt="Image of volunteers with various old people who are sitting."
-					className="h-full md:w-full xl:w-auto"
-				/>
 			</div>
 
 			{/* Building Section ends */}
@@ -299,10 +311,10 @@ const Home = () => {
 						alt="Icon showing two sets of leaves"
 						className="w-16 lg:w-28"
 					/>
-					<h6 className="font-cormorant font-light text-terracotta text-lg lg:text-xl">
+					<h6 className="font-cormorant font-light text-brown text-lg lg:text-xl">
 						ಉದ್ದೇಶ | <em className="font-medium italic">PURPOSE</em>
 					</h6>
-					<h4 className="font-cormorant font-medium text-grey md:text-[#003a3e] text-2xl lg:text-4xl">
+					<h4 className="font-cormorant font-medium text-grey md:text-[#003a3e] text-2xl lg:text-4xl text-center">
 						A Tapestry of&nbsp;
 						<em className="italic">Inclusion and Care</em>
 					</h4>
@@ -358,7 +370,7 @@ const Home = () => {
 							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Income Tax Act:
 							</div>
-							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								80G
 							</div>
 						</div>
@@ -366,7 +378,7 @@ const Home = () => {
 							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Registered Under:
 							</div>
-							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								“Darpan” Ministry of Planning, Government of India
 							</div>
 						</div>
@@ -374,7 +386,7 @@ const Home = () => {
 							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Unique ID:
 							</div>
-							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								KA/2024/0427228dated 25-6-2024
 							</div>
 						</div>
@@ -382,7 +394,7 @@ const Home = () => {
 							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Trust&apos;s C.S.R Registr. Number
 							</div>
-							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								CSR00076779
 							</div>
 						</div>
@@ -390,7 +402,7 @@ const Home = () => {
 							<div className="border-l border-y border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								C.S.R Number Registr. At
 							</div>
-							<div className="border border-[#00000025] w-2/3 py-4 px-4 font-semibold text-terracotta">
+							<div className="border border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								Office of the Registrar of the Companies, Ministry of Corporate
 								Affairs, Government of India.
 							</div>
@@ -448,7 +460,7 @@ const Home = () => {
 					className="flex py-2 md:py-4 px-4 md:px-8 bg-offwhite rounded-md md:rounded-lg w-fit items-center gap-2 z-20"
 					onClick={openPopup}
 				>
-					<p className="font-cormorant text-terracotta font-normal text-lg md:text-xl">
+					<p className="font-cormorant text-brown font-normal text-lg md:text-xl">
 						List of Trustees
 					</p>
 					<img src={arrowRight} alt="Arrow Icon" className="w-5" />

@@ -6,6 +6,7 @@ import arrowBlack from "./Arrow-Right-Black.svg";
 import arrowDown from "./Arrow-icon-down.svg"
 import buildingIconMain from "./Building-Icon.svg"
 import buildingImage1 from "./Building-Image-1.png";
+import buildingImage2 from "./Building-Image-2.png";
 import buildingIcon1 from "./Building-Icon-1.svg";
 import buildingIcon2 from "./Building-Icon-2.svg";
 import buildingIcon3 from "./Building-Icon-3.svg";
@@ -61,14 +62,15 @@ export {
 	arrowDown,
 	buildingIconMain,
 	buildingImage1,
+	buildingImage2,
 	buildingIcon1,
 	buildingIcon2,
 	buildingIcon3,
 	buildingIcon4,
 	buildingIcon5,
 	buildingIcon6,
-    chevronDown,
-    chevronUp,
+	chevronDown,
+	chevronUp,
 	communityIcon,
 	heroImage1,
 	heroImage2,
@@ -99,11 +101,11 @@ export {
 	purposeIcon,
 	quoteMarkIcon,
 	statusIcon,
-    trusteesIcon,
+	trusteesIcon,
 	trustee1,
 	trustee2,
 	trustee3,
 	trustee4,
 	trustee5,
-    zoomIcon,
+	zoomIcon,
 };

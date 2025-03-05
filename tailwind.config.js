@@ -28,10 +28,10 @@ export default {
 			},
 
 			colors: {
-				terracotta: "#BE5449",
+				terracotta: "#F46E4E",
 				offwhite: "#F6F2E7",
 				grey: "#1E1E1E",
-				brown: "#806753",
+				brown: "#C85438",
 				beige: "#EDE2CF",
 			},
 		},

@@ -18,7 +18,7 @@ const Footer = () => {
 					Contact us or visit us directly:
 				</p>
 				<Link to="/contribute" onClick={() => window.scrollTo(0, 0)}>
-					<div className="flex items-center gap-2 font-cormorant font-medium text-lg md:text-2xl text-terracotta">
+					<div className="flex items-center gap-2 font-cormorant font-medium text-lg md:text-2xl text-brown">
 						<p>Contact</p>
 						<img src={arrowRight} alt="arrow" className="w-4" />
 					</div>
