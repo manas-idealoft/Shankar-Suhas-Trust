@@ -58,13 +58,29 @@ const handleChange = (e) => {
 	setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // Reset error on input change
 };
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (validate()) {
-			console.log("Form Submitted", formData);
-			// Here you can handle sending form data to your backend or email service
-		}
-	};
+	const [submitStatus, setSubmitStatus] = useState(null);
+
+const handleSubmit = (e) => {
+	e.preventDefault();
+	if (validate()) {
+		console.log("Form Submitted", formData);
+		setSubmitStatus("submitted"); // Success message
+		setTimeout(() => {
+			setSubmitStatus(null); // Reset after 3 seconds
+			setFormData({
+				name: "",
+				reason: "",
+				email: "",
+				phoneNumber: "",
+				location: "",
+			}); // Reset form
+		}, 3000);
+	} else {
+		setSubmitStatus("error"); // Error message
+		setTimeout(() => setSubmitStatus(null), 3000); // Reset after 3 seconds
+	}
+};
+
 
 	const faqData = [
 		{
@@ -241,16 +257,40 @@ const handleChange = (e) => {
 											: "border-b border-grey"
 									} outline-none xl:py-2 text-brown text-xl md:text-2xl xl:text-3xl`}
 								/>
-								{errors.location && <p className="text-brown">{errors.location}</p>}
+								{errors.location && (
+									<p className="text-brown">{errors.location}</p>
+								)}
 							</div>
 
 							<div className="flex w-1/2 h-2/3">
 								<button
 									type="submit"
-									className="flex items-center gap-2 bg-white px-8 py-2 border rounded-md transition"
+									className={`flex justify-center items-center gap-2 px-8 py-2 border rounded-md transition ${
+										submitStatus === "submitted"
+											? "bg-brown text-white"
+											: submitStatus === "error"
+											? "bg-grey text-white"
+											: "bg-white hover:bg-gray-200"
+									}`}
 								>
-									<p className="hover:text-lg md:hover:text-3xl">Submit</p>
-									<img src={arrowBlack} alt="Arrow" className="w-5 hover:w-6" />
+									<span className="flex items-center justify-center gap-2">
+										<p className="text-lg md:text-3xl">
+											{submitStatus === "submitted"
+												? "Submitted"
+												: submitStatus === "error"
+												? "Error"
+												: "Submit"}
+										</p>
+										{!(
+											submitStatus === "submitted" || submitStatus === "error"
+										) && (
+											<img
+												src={arrowBlack}
+												alt="Arrow"
+												className="w-5 md:w-6 transition"
+											/>
+										)}
+									</span>
 								</button>
 							</div>
 						</div>
