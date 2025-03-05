@@ -2,59 +2,98 @@ import { arrowBlack, arrowDown, chevronDown, chevronUp } from "../assets";
 import { ImageSlideshow } from "../components";
 import { useState } from "react";
 
-
-
-
 const Contribute = () => {
-    const [formData, setFormData] = useState({
-			name: "",
-			reason: "",
-			email: "",
-			phoneNumber: "",
-			location: "",
+	const [formData, setFormData] = useState({
+		name: "",
+		reason: "",
+		email: "",
+		phoneNumber: "",
+		location: "",
 	});
-	
 
-	const handleChange = (e) => {
-			const { name, value } = e.target;
-			setFormData((prevState) => ({
-				...prevState,
-				[name]: value,
-			}));
-	};
+	const [errors, setErrors] = useState({});
+
+const validate = () => {
+	let newErrors = {};
+	if (!formData.name.trim()) newErrors.name = "Name is required.";
+	if (!formData.reason.trim()) newErrors.reason = "Tell us why.";
+
+	if (!formData.email.trim()) {
+		newErrors.email = "Enter your email.";
+	} else if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+		newErrors.email = "Invalid email.";
+	}
+
+	if (!formData.phoneNumber.trim()) {
+		newErrors.phoneNumber = "Enter your phone number.";
+	} else if (!/^\d{4} \d{3} \d{3}$/.test(formData.phoneNumber)) {
+		newErrors.phoneNumber = "Must be 10 digits.";
+	}
+
+	if (!formData.location.trim()) newErrors.location = "Enter your location.";
+	setErrors(newErrors);
+	return Object.keys(newErrors).length === 0;
+};
+
+
+const handleChange = (e) => {
+	const { name, value } = e.target;
+
+	if (name === "phoneNumber") {
+		// Remove non-numeric characters
+		let cleaned = value.replace(/\D/g, "");
+
+		// Format as xxxx xxx xxx
+		if (cleaned.length > 4 && cleaned.length <= 7) {
+			cleaned = cleaned.replace(/^(\d{4})(\d{0,3})/, "$1 $2");
+		} else if (cleaned.length > 7) {
+			cleaned = cleaned.replace(/^(\d{4})(\d{3})(\d{0,3})/, "$1 $2 $3");
+		}
+
+		setFormData((prevState) => ({ ...prevState, phoneNumber: cleaned }));
+	} else {
+		setFormData((prevState) => ({ ...prevState, [name]: value }));
+	}
+
+	setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // Reset error on input change
+};
 
 	const handleSubmit = (e) => {
-			e.preventDefault();
+		e.preventDefault();
+		if (validate()) {
 			console.log("Form Submitted", formData);
 			// Here you can handle sending form data to your backend or email service
-    };
-    
+		}
+	};
 
-    const faqData = [
-			{
-				question: "What is the mission of the foundation?",
-				answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
-			},
-			{
-				question:
-					"Who can benefit from the services provided by the foundation?",
-				answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
-			},
-			{
-				question: "How can I donate to the foundation?",
-answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
-			},
-			{
-				question: "How can I enroll someone in the school or old age home?",
-				answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
-			},
-    ];
-    
-const [toggleIndex, setToggleIndex] = useState(null);
+	const faqData = [
+		{
+			question: "What is the mission of the foundation?",
+			answer:
+				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+		},
+		{
+			question: "Who can benefit from the services provided by the foundation?",
+			answer:
+				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+		},
+		{
+			question: "How can I donate to the foundation?",
+			answer:
+				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+		},
+		{
+			question: "How can I enroll someone in the school or old age home?",
+			answer:
+				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+		},
+	];
 
-const handleToggle = (index) => {
-	setToggleIndex(toggleIndex === index ? null : index);
-};
+	const [toggleIndex, setToggleIndex] = useState(null);
+
+	const handleToggle = (index) => {
+		setToggleIndex(toggleIndex === index ? null : index);
+	};
 
 	return (
 		<div>
@@ -73,7 +112,7 @@ const handleToggle = (index) => {
 						</h4>
 					</div>
 				</div>
-				<div className="pt-4 md:pt-6 xl:pt-0">
+				<div className="pt-4 md:pt-6">
 					<ImageSlideshow />
 				</div>
 			</div>
@@ -126,8 +165,13 @@ const handleToggle = (index) => {
 								placeholder="First and last name"
 								value={formData.name}
 								onChange={handleChange}
-								className="w-full bg-transparent border-b border-grey outline-none xl:py-2 text-terracotta text-xl md:text-2xl xl:text-3xl"
+								className={`w-full bg-transparent  ${
+									errors.name
+										? "border-b-2 border-brown"
+										: "border-b border-grey"
+								} outline-none xl:py-2 text-brown text-xl md:text-2xl xl:text-3xl`}
 							/>
+							{errors.name && <p className="text-brown">{errors.name}</p>}
 						</div>
 
 						<div className="w-full">
@@ -153,8 +197,13 @@ const handleToggle = (index) => {
 									placeholder="Your email address"
 									value={formData.email}
 									onChange={handleChange}
-									className="w-full bg-transparent border-b border-grey outline-none xl:py-2 text-terracotta text-xl md:text-2xl xl:text-3xl"
+									className={`w-full bg-transparent  ${
+										errors.email
+											? "border-b-2 border-brown"
+											: "border-b border-grey"
+									} outline-none xl:py-2 text-brown text-xl md:text-2xl xl:text-3xl`}
 								/>
+								{errors.email && <p className="text-brown">{errors.email}</p>}
 							</div>
 
 							<div className="w-full md:w-1/2">
@@ -165,8 +214,15 @@ const handleToggle = (index) => {
 									placeholder="Your phone number"
 									value={formData.phoneNumber}
 									onChange={handleChange}
-									className="w-full bg-transparent border-b border-grey outline-none xl:py-2 text-terracotta text-xl md:text-2xl xl:text-3xl"
+									className={`w-full bg-transparent  ${
+										errors.phoneNumber
+											? "border-b-2 border-brown"
+											: "border-b border-grey"
+									} outline-none xl:py-2 text-brown text-xl md:text-2xl xl:text-3xl`}
 								/>
+								{errors.phoneNumber && (
+									<p className="text-brown">{errors.phoneNumber}</p>
+								)}
 							</div>
 						</div>
 
@@ -176,11 +232,16 @@ const handleToggle = (index) => {
 								<input
 									type="text"
 									name="location"
-									placeholder="Your country and city"
+									placeholder="Your city and country"
 									value={formData.location}
 									onChange={handleChange}
-									className="w-full bg-transparent border-b border-grey outline-none xl:py-2 text-terracotta text-xl md:text-2xl xl:text-3xl"
+									className={`w-full bg-transparent  ${
+										errors.location
+											? "border-b-2 border-brown"
+											: "border-b border-grey"
+									} outline-none xl:py-2 text-brown text-xl md:text-2xl xl:text-3xl`}
 								/>
+								{errors.location && <p className="text-brown">{errors.location}</p>}
 							</div>
 
 							<div className="flex w-1/2 h-2/3">

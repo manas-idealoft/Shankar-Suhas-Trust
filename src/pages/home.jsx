@@ -410,6 +410,14 @@ const Home = () => {
 					</div>
 					<Link
 						to="/contribute"
+						onClick={() => {
+							setTimeout(() => {
+								const topElement = document.getElementById("origin");
+								if (topElement) {
+									topElement.scrollIntoView({ behavior: "smooth" });
+								}
+							}, 100);
+						}}
 						className="flex py-2 md:py-4 px-4 md:px-8 bg-terracotta rounded-md md:rounded-lg w-fit items-center gap-2 md:gap-4 mt-4 md:mt-0"
 					>
 						<p className="font-cormorant text-white font-normal text-lg md:text-xl">
