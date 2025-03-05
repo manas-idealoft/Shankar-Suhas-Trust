@@ -237,7 +237,7 @@ const Home = () => {
 						</div>
 						<div
 							id="building-pointers"
-							className="font-cormorant font-normal text-grey lg:text-brown text-lg md:text-xl h-fit w-full md:w-3/4 lg:w-full flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-min gap-6"
+							className="font-cormorant font-normal text-grey lg:text-brown text-lg xl:text-xl h-fit w-full md:w-3/4 lg:w-full flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-min gap-6 overflow-y-auto"
 						>
 							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
 								<img src={buildingIcon1} alt="" />
