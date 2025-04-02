@@ -305,7 +305,7 @@ const Home = () => {
 						to="/contribute"
 						onClick={() => {
 							setTimeout(() => {
-								const topElement = document.getElementById("origin");
+								const topElement = document.getElementById("contribute");
 								if (topElement) {
 									topElement.scrollIntoView({ behavior: "smooth" });
 								}
