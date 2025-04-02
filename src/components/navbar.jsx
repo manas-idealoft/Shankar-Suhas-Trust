@@ -28,6 +28,11 @@ const Navbar = () => {
 						</button>
 					</li>
 					<li>
+						<Link to="/purpose">
+							<p className="">Purpose</p>
+						</Link>
+					</li>
+					<li>
 						<Link to="/contribute">
 							<div className="flex items-center gap-2 py-3 px-8 bg-white rounded-lg">
 								<p>Contribute</p>
@@ -68,6 +73,16 @@ const Navbar = () => {
 							<img src={arrowRight} alt="arrow" className="w-4" />
 						</div>
 					</button>
+					
+						<Link to="/purpose" onClick={() => setToggle(false)}>
+							<div className="flex items-center gap-2">
+								<p className="text-terracotta font-cormorant font-medium text-lg">
+									Purpose
+								</p>
+								<img src={arrowRight} alt="arrow" className="w-4" />
+							</div>
+						</Link>
+					
 					<Link to="/contribute" onClick={() => setToggle(false)}>
 						<div className="flex items-center gap-2">
 							<p className="text-terracotta font-cormorant font-medium text-lg">

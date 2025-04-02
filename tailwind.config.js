@@ -15,6 +15,7 @@ export default {
 			},
 
 			backgroundImage: {
+				"hero-bg": "url('/src/assets/hero-bg.png')",
 				"building-bg": "url('/src/assets/Building-bg.png')",
 				"creators-bg": "url('/src/assets/Creators-bg.png')",
 				"currently-bg": "url('/src/assets/Currently-bg.png')",

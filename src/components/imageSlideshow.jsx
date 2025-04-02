@@ -1,3 +1,4 @@
+
 import {
 	originImage1,
 	originImage2,
@@ -15,8 +16,6 @@ import {
 } from "../assets";
 
 import PropTypes from "prop-types";
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -132,7 +131,6 @@ const ImageSlideshow = () => {
 
 	return (
 		<div className="relative w-full h-full flex flex-col gap-4">
-			{/* Main Image Swiper - Vertical on Mobile */}
 			<Swiper
 				style={{ "--swiper-navigation-color": "#ffffff" }}
 				spaceBetween={10}
@@ -141,7 +139,7 @@ const ImageSlideshow = () => {
 				autoplay={{ delay: 3000, disableOnInteraction: false }}
 				loop
 				modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-				className="w-full h-[40vh] sm:h-60vh lg:h-full"
+				className="w-full h-[60vh] md:h-full md:aspect-video" // Adjust height and aspect ratio here
 				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
 			>
 				{origin.map((item, index) => (
@@ -157,7 +155,6 @@ const ImageSlideshow = () => {
 				))}
 			</Swiper>
 
-			{/* Thumbnails - Below on Mobile, Side on Desktop */}
 			<Swiper
 				onSwiper={setThumbsSwiper}
 				spaceBetween={6}
@@ -185,9 +182,8 @@ const ImageSlideshow = () => {
 										: "opacity-60 scale-90"
 								}`}
 							/>
-							{/* Black Overlay on Active Thumbnail */}
 							{index === activeIndex && (
-								<div className="absolute inset-0 bg-black/50 rounded-md"></div>
+								<div className="absolute inset-0 bg-black/50 rounded-md w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24"></div>
 							)}
 						</div>
 					</SwiperSlide>
@@ -221,6 +217,5 @@ SlideContent.propTypes = {
 		description: PropTypes.string.isRequired,
 	}),
 };
-
 
 export default ImageSlideshow;

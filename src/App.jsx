@@ -2,9 +2,11 @@ import { useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./pages/home";
 import Contribute from "./pages/contribute";
+import Purpose from "./pages/purpose";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import TrusteePopUp from "./components/trusteePopUp";
+
 
 const AppLayout = () => {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
 		element: <AppLayout />,
 		children: [
 			{ path: "/", element: <Home /> },
+			{ path: "/purpose", element: <Purpose /> },
 			{ path: "/contribute", element: <Contribute /> },
 		],
 	},

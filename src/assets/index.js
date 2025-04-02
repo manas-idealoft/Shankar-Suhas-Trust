@@ -52,6 +52,9 @@ import trustee3 from "./trustee3.png";
 import trustee4 from "./trustee4.png";
 import trustee5 from "./trustee5.png";
 import zoomIcon from "./Zoom-icon.svg";
+import guidingForce from './Guiding-Force.png';
+import originImgIcon from './origin-img-icon.svg';
+import heroBg from './hero-bg.png'
 
 export {
 	logo,
@@ -108,4 +111,7 @@ export {
 	trustee4,
 	trustee5,
 	zoomIcon,
+	guidingForce,
+	originImgIcon,
+	heroBg,
 };

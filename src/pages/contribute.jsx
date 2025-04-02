@@ -1,5 +1,4 @@
 import { arrowBlack, arrowDown, chevronDown, chevronUp } from "../assets";
-import { ImageSlideshow } from "../components";
 import { useState } from "react";
 
 const Contribute = () => {
@@ -60,48 +59,108 @@ const handleChange = (e) => {
 
 	const [submitStatus, setSubmitStatus] = useState(null);
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
 	e.preventDefault();
-	if (validate()) {
-		console.log("Form Submitted", formData);
-		setSubmitStatus("submitted"); // Success message
+
+	// Run validation
+	if (!validate()) {
+		return; // Stop submission if validation fails
+	}
+
+	const submissionData = {
+		name: formData.name,
+		email: formData.email,
+		phoneNumber: formData.phoneNumber,
+		location: formData.location,
+		reason: formData.reason,
+	};
+
+	console.log("Submitting data:", submissionData); // Debug log
+
+	setSubmitStatus("submitting"); // Set submitting state
+
+	try {
+		const response = await fetch(
+			"https://script.google.com/macros/s/AKfycbyrtHSp7NZuae6VHG1Z3hpnDSrPUcZcwCIAzRBXPIJ2ds14xRxZpak7kdmQevh7FQlePA/exec",
+			{
+				method: "POST",
+				body: JSON.stringify(submissionData),
+				headers: {
+					"Content-Type": "application/json",
+				},
+				mode: "no-cors",
+			}
+		);
+
+		console.log("Server response:", response);
+
+		alert("Thank you! Your contribution has been recorded.");
+		setFormData({
+			name: "",
+			email: "",
+			phoneNumber: "",
+			location: "",
+			reason: "",
+		});
+		setErrors({});
+		setSubmitStatus("submitted"); // Set submitted state
+
+		// Optionally, clear the status after a delay
 		setTimeout(() => {
-			setSubmitStatus(null); // Reset after 3 seconds
-			setFormData({
-				name: "",
-				reason: "",
-				email: "",
-				phoneNumber: "",
-				location: "",
-			}); // Reset form
-		}, 3000);
-	} else {
-		setSubmitStatus("error"); // Error message
-		setTimeout(() => setSubmitStatus(null), 3000); // Reset after 3 seconds
+			setSubmitStatus(null);
+		}, 3000); // Clear after 3 seconds
+	} catch (error) {
+		console.error("Submission error:", error);
+		alert("There was an error submitting your contribution. Please try again.");
+		setSubmitStatus("error"); // Set error state
+		// Optionally, clear the status after a delay
+		setTimeout(() => {
+			setSubmitStatus(null);
+		}, 5000); // Clear after 5 seconds
 	}
 };
 
-
 	const faqData = [
 		{
-			question: "What is the mission of the foundation?",
-			answer:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+			question: "What is the Trust's mission?",
+			answer: (
+				<>
+					The Trust aims to:
+					<br />
+					(i) Establish a care facility for the elderly and persons with
+					disabilities (divyang).
+					<br />
+					(ii) Create an inclusive educational institution for general
+					education, integrating persons with disabilities (divyang) and
+					underprivileged individuals.
+				</>
+			),
 		},
 		{
-			question: "Who can benefit from the services provided by the foundation?",
-			answer:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+			question: "Who can benefit from the services provided by the Trust?",
+			answer: (
+				<>
+					The Trust&apos;s services are designed to benefit:
+					<br /> (i) Persons with disabilities (divyang). <br /> (ii)
+					Individuals from underprivileged backgrounds. <br />
+					(iii) Elderly individuals. <br />
+					(iv) The general public, through inclusive education and community
+					outreach.
+				</>
+			),
 		},
 		{
-			question: "How can I donate to the foundation?",
-			answer:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
-		},
-		{
-			question: "How can I enroll someone in the school or old age home?",
-			answer:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam maxime laudantium dolor magnam nostrum fugiat sit earum ducimus debitis.",
+			question: "How can I donate to the Trust?",
+			answer: (
+				<>
+					The Trust welcomes support in various forms. You can contribute by
+					volunteering your time and skills, donating essential goods and
+					resources, or making monetary contributions. Additionally, registered
+					NGOs sharing our objectives are encouraged to collaborate with us
+					through Memorandums of Understanding (MOUs), fostering a collective
+					effort to serve our community.
+				</>
+			),
 		},
 	];
 
@@ -112,27 +171,8 @@ const handleSubmit = (e) => {
 	};
 
 	return (
-		<div>
-			<div
-				id="origin"
-				className="h-svh md:h-full relative px-8 md:px-24 pt-28 md:pt-20 xl:pt-36 overflow-hidden flex flex-col object-contain justify-center"
-			>
-				<div className="flex">
-					<div>
-						<h6 className="font-cormorant font-light text-terracotta text-lg lg:text-xl pt-16 md:pt-24">
-							ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
-						</h6>
-						<h4 className="font-cormorant font-normal text-brown text-2xl md:text-3xl lg:text-5xl">
-							The Heartfelt Journey Behind
-							<br /> This Foundation
-						</h4>
-					</div>
-				</div>
-				<div className="pt-4 md:pt-6">
-					<ImageSlideshow />
-				</div>
-			</div>
-			<div id="contribute" className="h-full py-16 xl:py-24 px-8 md:px-24">
+		<div className="pt-24">	
+			<div id="contribute" className="h-full py-16 xl:pt-36 xl:pb-24 px-8 md:px-24">
 				<div className="flex gap-5 ">
 					<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">CONTRIBUTE</em>
@@ -313,7 +353,7 @@ const handleSubmit = (e) => {
 			</div>
 			<div
 				id="questions"
-				className="h-full xl:h-fit px-8 md:px-24 pb-24 pt-6 xl:py-24 flex justify-center items-center"
+				className="h-full xl:h-fit px-8 md:px-24 pb-24 pt-6 xl:pt-12 flex justify-center items-center"
 			>
 				<div className="flex flex-col-reverse xl:flex-row gap-8 xl:gap-16 px-0 xl:px-8 w-full">
 					<div className="flex flex-col w-full xl:w-3/5">
