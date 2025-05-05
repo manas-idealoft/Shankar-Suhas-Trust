@@ -56,8 +56,6 @@ import trustee5 from "./trustee5.png";
 import zoomIcon from "./Zoom-icon.svg";
 import guidingForce from './Guiding-Force.png';
 import originImgIcon from './origin-img-icon.svg';
-import heroBg1 from './hero-bg-1.png';
-import heroBg2 from "./hero-bg-2.png";
 
 export {
 	logo,
