@@ -122,18 +122,22 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 										style={{ opacity: slide2Opacity }}
 										className="min-w-full flex justify-center px-4"
 									>
-										<div className=" w-full md:w-3/4 lg:w-2/3 flex flex-col items-center gap-4 xl:gap-8">
+										<div className=" w-full md:w-3/4 flex flex-col items-center gap-4 xl:gap-8">
 											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
-												We walk the path of seva, shaping a future where
-												education becomes the bridge to empowerment. This
-												gurukul of inclusivity nurtures every learner—Divyang
-												and underserved alike—through compassion, acceptance,
-												and knowledge.
+												The Shankar Suhas Trust is building an{" "}
+												<em className="font-bold not-italic">
+													inclusive school
+												</em>
+												where education transcends barriers.
 											</p>
 											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
-												This is more than a mission; it is a movement to create
-												and grow a space where learning, dignity, and belonging
-												thrive.
+												Rooted in{" "}
+												<em className="font-bold not-italic">
+													sneh (affection) and seva (service),
+												</em>{" "}
+												this space welcomes children from all backgrounds,
+												ensuring Divyang students and underserved communities
+												receive equal opportunities to learn and grow.
 											</p>
 										</div>
 									</motion.div>

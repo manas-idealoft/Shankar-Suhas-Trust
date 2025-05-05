@@ -44,7 +44,7 @@ const Home = () => {
 		}, 5000);
 
 		return () => clearInterval(interval);
-	}, []); // Run only on mount
+	}, [bgClasses.length]); 
 
 	return (
 		<div>
@@ -71,10 +71,7 @@ const Home = () => {
 							Shankar Suhas Trust is mainly dedicated to establish a{" "}
 							<em className="font-bold not-italic">
 								facility center for the welfare of the old and the divyang.
-							</em>
-						</p>
-						<p className="text-lg md:text-2xl lg:text-3xl xl:text-2xl text-center w-3/4">
-							Also to establish institution for general education, with{" "}
+							</em> Also to establish institution for general education, with{" "}
 							<em className="font-bold not-italic">
 								emphasis on the integration of the divyang students.
 							</em>
@@ -88,7 +85,7 @@ const Home = () => {
 			<div id="origin" ref={targetRef} className="relative h-[300vh] ">
 				<div className="sticky top-0 h-screen px-8 md:px-24 py-4 lg:py-24 flex flex-col lg:flex-row items-center justify-start lg:justify-evenly bg-origin-bg bg-no-repeat bg-cover">
 					<div className="w-full lg:w-1/2 h-2/3 lg:h-full relative flex items-center justify-center overflow-hidden">
-						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card-bg bg-cover bg-right-top bg-no-repeat border-grey/15 border-2 w-10/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-3 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
+						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-offwhite border-grey/15 border-2 w-10/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-3 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
 							<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-2xl ">
 								ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
 							</h6>

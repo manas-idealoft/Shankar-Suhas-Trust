@@ -6,7 +6,7 @@ const Footer = () => {
 		<div className="px-8 md:px-24 py-20 md:py-36 gap-20 md:gap-0 flex flex-col md:flex-row justify-between bg-beige">
 			<div className="flex flex-col justify-between gap-8">
 				<Link to="/" onClick={() => window.scrollTo(0, 0)}>
-					<img src={logo} alt="Logo" className="w-12" />
+					<img src={logo} alt="Logo" className="w-24" />
 				</Link>
 				<h6 className="font-cormorant font-medium italic text-3xl md:text-4xl text-terracotta">
 					Shankas Suhas <br />
