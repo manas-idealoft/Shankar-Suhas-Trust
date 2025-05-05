@@ -171,8 +171,11 @@ const handleSubmit = async (e) => {
 	};
 
 	return (
-		<div className="pt-24">	
-			<div id="contribute" className="h-full py-16 xl:pt-36 xl:pb-24 px-8 md:px-24">
+		<div className="pt-24">
+			<div
+				id="contribute"
+				className="h-full py-16 xl:pt-36 xl:pb-24 px-8 md:px-24"
+			>
 				<div className="flex gap-5 ">
 					<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
 						ಸಮುದಾಯ | <em className="font-medium italic">CONTRIBUTE</em>
@@ -355,7 +358,15 @@ const handleSubmit = async (e) => {
 				id="questions"
 				className="h-full xl:h-fit px-8 md:px-24 pb-24 pt-6 xl:pt-12 flex justify-center items-center"
 			>
-				<div className="flex flex-col-reverse xl:flex-row gap-8 xl:gap-16 px-0 xl:px-8 w-full">
+				<div className="flex flex-col xl:flex-row gap-8 xl:gap-16 px-0 xl:px-8 w-full">
+					<div className="w-full xl:w-2/5">
+						<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
+							ಪ್ರಶ್ನೆಗಳು | <em className="font-medium italic">QUESTIONS</em>
+						</h6>
+						<h4 className="font-cormorant font-normal text-grey text-2xl md:text-3xl pt-4">
+							Till then, we might be able to answer a few questions for you!
+						</h4>
+					</div>
 					<div className="flex flex-col w-full xl:w-3/5">
 						<div className="flex flex-col w-full">
 							{faqData.map((item, index) => (
@@ -384,14 +395,6 @@ const handleSubmit = async (e) => {
 								</div>
 							))}
 						</div>
-					</div>
-					<div className="w-full xl:w-2/5">
-						<h6 className="font-cormorant font-light text-terracotta text-lg xl:text-xl">
-							ಪ್ರಶ್ನೆಗಳು | <em className="font-medium italic">QUESTIONS</em>
-						</h6>
-						<h4 className="font-cormorant font-normal text-grey text-2xl md:text-3xl pt-4">
-							Till then, we might be able to answer a few questions for you!
-						</h4>
 					</div>
 				</div>
 			</div>

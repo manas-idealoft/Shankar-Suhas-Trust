@@ -3,14 +3,20 @@ import { useState, useEffect } from "react";
 import {
 	arrowWhite,
 	buildingIcon1,
+	buildingIcon2,
+	buildingIcon3,
 	buildingIcon4,
+	buildingIcon5,
+	buildingIcon6,
+	buildingIconMain,
+	buildingImage1,
+	buildingImage2,
 	communityIcon,
 	guidingForce,
 	originImage10,
 	originImage12,
 	originImgIcon,
 } from "../assets";
-import { ImageSlideshow } from "../components";
 
 const Home = () => {
 	const bgClasses = [
@@ -19,24 +25,16 @@ const Home = () => {
 		"bg-com-section-3",
 	];
 	const [currentBg, setCurrentBg] = useState(0);
-	const [heroState, setHeroState] = useState("Welfare");
-	const [currentImage, setCurrentImage] = useState(originImage10);
 
-    useEffect(() => {
-			setCurrentImage(heroState === "Welfare" ? originImage10 : originImage12);
-		}, [heroState]);
+
+		const [isLarge, setIsLarge] = useState(window.innerWidth > 1280);
 
 		useEffect(() => {
-			const intervalId = setInterval(() => {
-				setTimeout(() => {
-					setHeroState((prev) =>
-						prev === "Welfare" ? "Education" : "Welfare"
-					);
-				}, 500);
-			}, 5000);
+			const handleResize = () => setIsLarge(window.innerWidth > 1280);
+			window.addEventListener("resize", handleResize);
+			return () => window.removeEventListener("resize", handleResize);
+		}, []);
 
-			return () => clearInterval(intervalId);
-		}, []); 
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -49,79 +47,45 @@ const Home = () => {
 	return (
 		<div>
 			{/* Hero Section starts */}
-
 			<div
 				id="hero"
-				className="h-full md:min-h-svh pb-8 pt-36 md:pt-40 xl:pt-36 xl:pb-20 bg-hero-bg bg-[center_bottom_-8rem] bg-no-repeat xl:bg-none flex flex-col xl:flex-row gap-8 xl:justify-start px-8 md:px-24 font-cormorant text-grey "
+				className="h-full md:min-h-svh bg-hero-bg-1 bg-no-repeat bg-cover bg-top pb-8 pt-36 md:pt-40 xl:pt-36 xl:pb-20 flex flex-col xl:flex-row gap-8 xl:justify-start px-8 md:px-24 font-cormorant text-grey "
 			>
-					<div className="xl:bg-hero-bg xl:bg-[center_bottom_-8rem] bg-cover] bg-no-repeat font-normal text-grey md:text-xl w-full xl:w-1/2 flex flex-col gap-8 xl:gap-2 justify-between h-[90svh] xl:py-24">
-						<div className="flex flex-col gap-2 md:gap-4 lg:gap-8">
-							<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
-								ಬಗ್ಗೆ | <em className="font-medium italic">ABOUT</em>
-							</h6>
-							<h3 className="font-normal md:font-semibold text-5xl text-brown">
-								Nurturing Futures
-							</h3>
-							<p className="text-lg md:text-2xl lg:text-3xl xl:text-2xl">
-								{heroState === "Welfare"
-									? "Shankar Suhas Trust is mainly dedicated to establish a facility center for the welfare of the old and the divyang."
-									: "Also to establish institution for general education, with  emphasis on the integration of the divyang students."}
-							</p>
-						</div>
-						<div className="flex xl:hidden w-full h-96 lg:h-[42rem] items-center justify-center relative">
-							<img
-								key={currentImage}
-								src={currentImage}
-								alt=""
-								className="h-full object-cover aspect-[40/19] transition-opacity duration-500 absolute inset-0"
-							/>
-						</div>
-
-						<div className="flex flex-col md:flex-row gap-4 w-full font-cormorant font-medium text-lg md:text-xl pt-0 md:pt-8 lg:pt-12 xl:pt-0">
-							<div
-								onClick={() => {
-									setHeroState("Welfare");
-								}}
-								className={`${
-									heroState === "Welfare"
-										? "opacity-100 border-t-2 border-brown"
-										: "opacity-40 border-t border-grey"
-								} flex gap-2 md:gap-4 items-start w-full md:w-1/2 px-1 py-2 md:px-2 md:py-4 `}
-							>
-								<img src={buildingIcon1} alt="" className="w-6 md:w-10" />
-								<p>A Facility Center for the Welfare of the Old & Divyang</p>
-							</div>
-							<div
-								onClick={() => {
-									setHeroState("Education");
-								}}
-								className={`${
-									heroState === "Education"
-										? "opacity-100 border-t-2 border-brown"
-										: "opacity-40 border-t border-grey"
-								} flex gap-2 md:gap-4 items-start w-full md:w-1/2 px-1 py-2 md:px-2 md:py-4 `}
-							>
-								<img src={buildingIcon4} alt="" className="w-6 md:w-10" />
-								<p>A Center for Education</p>
-							</div>
-						</div>
-					</div>
-					<div className="hidden xl:flex w-full xl:w-1/2 h-[90svh]] items-center justify-center relative">
+				<div className="font-normal text-grey md:text-xl w-full flex flex-col gap-8 xl:gap-2 items-center justify-between h-[90svh] xl:py-24">
+					<div className="flex flex-col gap-2 md:gap-4 lg:gap-8 items-center w-1/2">
 						<img
-							key={currentImage}
-							src={currentImage}
-							alt=""
-							className="h-full object-cover aspect-[40/19] transition-opacity duration-500 absolute inset-0"
+							src={communityIcon}
+							alt="Icon showing leaves"
+							className="mt-2 md:mt-4 w-8 md:w-14"
 						/>
+						<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl text-center">
+							ಬಗ್ಗೆ | <em className="font-medium italic">ABOUT</em>
+						</h6>
+						<h3 className="font-normal md:font-semibold text-5xl text-brown text-center">
+							A Facility Center for welfare <br />
+							of Old & Divyang
+						</h3>
+						<p className="text-lg md:text-2xl lg:text-3xl xl:text-2xl text-center w-3/4">
+							Shankar Suhas Trust is mainly dedicated to establish a{" "}
+							<em className="font-bold not-italic">
+								facility center for the welfare of the old and the divyang.
+							</em>
+						</p>
+						<p className="text-lg md:text-2xl lg:text-3xl xl:text-2xl text-center w-3/4">
+							Also to establish institution for general education, with{" "}
+							<em className="font-bold not-italic">
+								emphasis on the integration of the divyang students.
+							</em>
+						</p>
 					</div>
-
+				</div>
 			</div>
 			{/* Hero Section ends */}
 
 			{/* Origin Section starts */}
 			<div
 				id="origin"
-				className=":min-h-screen flex px-8 md:px-24 justify-start py-12 lg:py-24"
+				className=":min-h-screen flex px-8 md:px-24 justify-start py-12 lg:py-24 bg-origin-bg bg-no-repeat bg-cover"
 			>
 				<div className="w-full flex flex-col justify-start items-start gap-4 object-contain">
 					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
@@ -133,20 +97,6 @@ const Home = () => {
 						Behind This Trust
 					</h4>
 					<div className="flex flex-col xl:flex-row pt-8 lg:pt-12 gap-8 lg:gap-16 justify-between items-center md:items-start xl:items-center">
-						<div className="relative flex-shrink-0 flex flex-col">
-							<img
-								src={guidingForce}
-								alt="Shankar and Suhas Bhat"
-								className="block max-w-full object-contain"
-							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
-							<div className="absolute bottom-4 left-4 text-white text-lg font-bold pointer-events-none flex gap-2">
-								<img src={originImgIcon} alt="" className="w-4 md:w-6" />
-								<p className="font-cormorant italic font-bold text-xl lg:text-2xl">
-									Inspiration & Guiding Force
-								</p>
-							</div>
-						</div>
 						<div className="w-full xl:w-2/3 font-cormorant font-normal text-grey text-lg md:text-xl lg:text-2xl xl:text-xl text-start md:text-justify flex flex-col gap-4 md:gap-8">
 							<p>
 								The founders of the Shankar Suhas Trust, K. Ishwara Bhat, a
@@ -169,13 +119,19 @@ const Home = () => {
 								care for the differently-abled and the underprivileged.
 							</p>
 						</div>
+						<div className="relative flex-shrink-0 flex flex-col">
+							<img
+								src={guidingForce}
+								alt="Shankar and Suhas Bhat"
+								className="block max-w-full object-contain"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
 			{/* Origin Section ends */}
 
 			{/* Community Section starts */}
-
 			<div
 				id="community"
 				className={`min-h-screen flex flex-col md:flex-row justify-end items-center md:items-end md:bg-cover bg-center transition-all duration-1000 ${bgClasses[currentBg]}`}
@@ -204,37 +160,98 @@ const Home = () => {
 					</p>
 				</div>
 			</div>
-
 			{/* Community Section ends */}
 
-			{/* Activities Section begins */}
+			{/* Building Section starts */}
 			<div
-				id="activities"
-				className="h-full overflow-y-auto relative px-8 md:px-24 flex flex-col object-contain justify-center"
+				id="building"
+				className="h-full xl:h-svh bg-brown bg-building-bg flex justify-center items-center pt-8 pb-0 px-8 md:px-16 md:py-12 xl:px-24 xl:py-16"
 			>
-				<div className="flex">
-					<div>
-						<h6 className="font-cormorant font-light text-terracotta text-lg lg:text-xl pt-16 md:pt-24">
-							ಚಟುವಟಿಕೆಗಳು | <em className="font-medium italic">ACTIVITIES</em>
-						</h6>
-						<h4 className="font-cormorant font-normal text-brown text-2xl md:text-3xl lg:text-5xl">
-							Glimpse of Our Activities
-						</h4>
+				<div className="  h-full w-full object-contain bg-offwhite rounded-lg flex flex-col xl:flex-row justify-center items-center xl:items-start xl:justify-start">
+					<div className=" w-full xl:w-7/12 h-full px-4 md:px-12 py-12 flex flex-col justify-between gap-6 md:gap-12 xl:gap-6 xl:items-start items-center">
+						<div className="flex flex-col gap-3 md:gap-6 xl:items-start items-center">
+							<h6 className="font-cormorant font-light text-brown text-base md:text-lg xl:text-xl text-center xl:text-start">
+								ನಿರ್ಮಿಸಲು | <em className="font-medium italic">BUILDING</em>
+							</h6>
+							<h4 className="font-cormorant font-normal text-brown text-2xl md:text-4xl xl:text-5xl text-center xl:text-start">
+								Weaving Lives, Nurturing
+								<br /> a <em className="italic">Collective Dream</em>
+							</h4>
+							<img
+								src={buildingIconMain}
+								alt="Icon showing a flower with two leaves popping out from the side."
+								className="w-16 md:w-20 xl:w-24"
+							/>
+						</div>
+						<div
+							id="building-pointers"
+							className="font-cormorant font-normal text-grey lg:text-brown text-lg xl:text-xl h-fit w-full md:w-3/4 lg:w-full flex flex-col lg:grid lg:grid-cols-2 lg:auto-rows-min gap-6 overflow-y-auto"
+						>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon1} alt="" />
+								<p className="text-center lg:text-left">
+									To establish and run a center for the welfare of old and
+									divyanga, The word divyanga shall include slow-learners,
+									mentally retarded and such other physically disabled people
+									also.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon4} alt="" />
+								<p className="text-center lg:text-left">
+									To establish and run schools, colleges, skill development
+									centers, hostels, libraries etc., and also provide scholarship
+									to poor students for their studies.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon2} alt="" />
+								<p className="text-center lg:text-left">
+									To undertake preservation of environment, including
+									water-shed, forests and wildlife and preservation of
+									monuments, places or objects of artistic or historic interest.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon5} alt="" />
+								<p className="text-center lg:text-left">
+									To undertake rural development work like developing rural
+									schools, roads, environment, organizing medical camps etc.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon3} alt="" />
+								<p className="text-center lg:text-left">
+									To provide both medical and financial relief to the poor and
+									needy.
+								</p>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
+								<img src={buildingIcon6} alt="" />
+								<p className="text-center lg:text-left">
+									To administer the properties of the Trust in achieving the
+									objects mentioned in this Deed.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div className="w-full xl:w-5/12 h-full flex items-center justify-end overflow-hidden">
+						<img
+							src={isLarge ? buildingImage1 : buildingImage2}
+							alt=""
+							className="h-full w-full xl:w-auto object-cover"
+						/>
 					</div>
 				</div>
-				<div className="py-4 md:py-6 flex-grow">
-					<ImageSlideshow />
-				</div>
 			</div>
-			{/* Activities Section ends */}
+			{/* Building Section ends */}
 
 			{/* Currently Section starts */}
-
 			<div
 				id="currently"
-				className="h-full lg:min-h-screen bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center px-8 md:px-24 py-12 md:py-16 xl:py-24"
+				className="h-full lg:min-h-screen w-full bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center px-8 md:px-24 py-12 md:py-16 xl:py-24"
 			>
-				<div className="flex flex-col gap-4 md:gap-6 items-start">
+				<div className="flex flex-col w-4/6 gap-4 md:gap-6 items-start">
 					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
 						ಇದೀಗ | <em className="font-medium italic">CURRENTLY</em>
 					</h6>
@@ -246,7 +263,7 @@ const Home = () => {
 						The Trust is having exemptions <br className="hidden md:block" />
 						for donations under:
 					</p>
-					<div className="flex flex-col font-cormorant text-lg md:text-xl italic">
+					<div className="flex flex-col font-cormorant text-lg md:text-xl italic w-full">
 						<div className="flex w-full">
 							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								Income Tax Act:
@@ -280,24 +297,57 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="flex">
-							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
+							<div className="border-l border-y border-[#00000025] w-1/3 py-4 px-4 font-medium">
 								C.S.R Number Registr. At
 							</div>
-							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
+							<div className="border border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
 								Office of the Registrar of the Companies, Ministry of Corporate
 								Affairs, Government of India.
 							</div>
 						</div>
-						<div className="flex">
+					</div>
+					<h4 className="font-cormorant font-normal text-grey text-2xl md:text-4xl pt-8">
+						Bank Details
+					</h4>
+					<div className="flex flex-col font-cormorant text-lg md:text-xl italic w-full">
+						<div className="flex w-full">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
+								Bank Name:
+							</div>
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
+								Union Bank of India
+							</div>
+						</div>
+						<div className="flex w-full">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
+								Branch:
+							</div>
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
+								D Devaraj Urs Road, Mysore
+							</div>
+						</div>
+						<div className="flex w-full">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
+								IFSC Code:
+							</div>
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
+								UBIN0808695
+							</div>
+						</div>
+						<div className="flex w-full">
+							<div className="border-l border-t border-[#00000025] w-1/3 py-4 px-4 font-medium">
+								Account Number:
+							</div>
+							<div className="border-t border-x border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
+								0869 1010 00647 68
+							</div>
+						</div>
+						<div className="flex w-full">
 							<div className="border-l border-y border-[#00000025] w-1/3 py-4 px-4 font-medium">
-								Account Details
+								Account Name:
 							</div>
 							<div className="border border-[#00000025] w-2/3 py-4 px-4 font-semibold text-brown">
-								Bank: Union Bank of India <br />
-								Branch: Devarajurs Road Mysore <br />
-								IFSC code: UBIN0808695 <br />
-								Account no: 0869 1010 0064 768 <br />
-								Name: Shankar Suhas Charitable Trust (R)
+								Shankar Suhas Charitable Trust (R)
 							</div>
 						</div>
 					</div>
@@ -320,7 +370,6 @@ const Home = () => {
 					</Link>
 				</div>
 			</div>
-
 			{/* Currently Section ends */}
 		</div>
 	);

@@ -15,13 +15,15 @@ export default {
 			},
 
 			backgroundImage: {
-				"hero-bg": "url('/src/assets/hero-bg.png')",
+				"hero-bg-1": "url('/src/assets/hero-bg-1.png')",
+				"hero-bg-2": "url('/src/assets/hero-bg-2.png')",
 				"building-bg": "url('/src/assets/Building-bg.png')",
 				"creators-bg": "url('/src/assets/Creators-bg.png')",
 				"currently-bg": "url('/src/assets/Currently-bg.png')",
+				"origin-bg": "url('/src/assets/Origin-Bg.png')",
 				"form-bg": "url('/src/assets/Form-bg.png')",
 				"main-bg": "url('/src/assets/Main-bg.png')",
-				"purpose-bg": "url('/src/assets/Purpose-bg.png')",
+				"purpose-bg": "url('/src/assets/purpose-bg-1.png')",
 				"status-bg": "url('/src/assets/Status-bg.png')",
 				"com-section-1": "url('/src/assets/Community-Section-Image-1.png')",
 				"com-section-2": "url('/src/assets/Community-Section-Image-2.png')",

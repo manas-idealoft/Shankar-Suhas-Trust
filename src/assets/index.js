@@ -29,6 +29,7 @@ import communitySectionImage3 from "./Community-Section-Image-3.png";
 import crossIcon from "./Cross-icon.svg";
 import hamburgerIcon from "./Hamburger-icon.svg";
 import mapIcon from "./Map-Icon.svg";
+import originBG from "./Origin-Bg.png";
 import originImage1 from "./Origin-Image-1.png";
 import originImage2 from "./Origin-Image-2.png";
 import originImage3 from "./Origin-Image-3.png";
@@ -42,6 +43,7 @@ import originImage10 from "./Origin-Image-10.png";
 import originImage11 from "./Origin-Image-11.png";
 import originImage12 from "./Origin-Image-12.png";
 import originImage13 from "./Origin-Image-13.png";
+import purposeBg from "./purpose-bg-2.png";
 import purposeIcon from "./Purpose-icon.svg";
 import quoteMarkIcon from "./Quote-Mark-Icon.svg";
 import statusIcon from "./Status-icon.svg";
@@ -54,7 +56,8 @@ import trustee5 from "./trustee5.png";
 import zoomIcon from "./Zoom-icon.svg";
 import guidingForce from './Guiding-Force.png';
 import originImgIcon from './origin-img-icon.svg';
-import heroBg from './hero-bg.png'
+import heroBg1 from './hero-bg-1.png';
+import heroBg2 from "./hero-bg-2.png";
 
 export {
 	logo,
@@ -88,6 +91,7 @@ export {
 	crossIcon,
 	hamburgerIcon,
 	mapIcon,
+	originBG,
 	originImage1,
 	originImage2,
 	originImage3,
@@ -101,6 +105,7 @@ export {
 	originImage11,
 	originImage12,
 	originImage13,
+	purposeBg,
 	purposeIcon,
 	quoteMarkIcon,
 	statusIcon,
@@ -113,5 +118,6 @@ export {
 	zoomIcon,
 	guidingForce,
 	originImgIcon,
-	heroBg,
+	heroBg1,
+	heroBg2,
 };
