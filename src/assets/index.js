@@ -116,6 +116,4 @@ export {
 	zoomIcon,
 	guidingForce,
 	originImgIcon,
-	heroBg1,
-	heroBg2,
 };

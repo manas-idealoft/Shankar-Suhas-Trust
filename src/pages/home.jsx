@@ -29,7 +29,6 @@ const Home = () => {
 	});
 
 	const x = useTransform(scrollYProgress, [0.1, 0.8], ["-250%", "-50%"]);
-	const cardOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
 	const [isLarge, setIsLarge] = useState(window.innerWidth > 1280);
 
@@ -103,10 +102,10 @@ const Home = () => {
 								retired Principal from the Directorate of Education, Government
 								of N.C.T. of Delhi, and Mrs. Ganga Bhat, a retired officer from
 								a nationalized bank, established this Trust out of deep
-								compassion and a spirit of seva. Being parents to two autistic
-								sons, they witnessed firsthand the struggles faced
-								by Divyang individuals and the downtrodden, often compounded by
-								society's apathy.
+								compassion and a spirit of seva. Being parents to two autistic
+								sons, they witnessed firsthand the struggles faced by Divyang
+								individuals and the downtrodden, often compounded by
+								society&apos;s apathy.
 							</p>
 						</div>
 						<motion.div
