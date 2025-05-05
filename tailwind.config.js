@@ -28,6 +28,7 @@ export default {
 				"com-section-1": "url('/src/assets/Community-Section-Image-1.png')",
 				"com-section-2": "url('/src/assets/Community-Section-Image-2.png')",
 				"com-section-3": "url('/src/assets/Community-Section-Image-3.png')",
+				"card-bg":"url('/src/assets/Card-1-Bg.png')",
 			},
 
 			colors: {

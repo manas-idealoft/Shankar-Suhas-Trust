@@ -82,14 +82,14 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 				className="relative h-[200vh] bg-offwhite"
 			>
 				<div className="sticky h-screen top-0 bg-status-bg bg-top bg-cover flex items-center justify-center">
-					<div className="h-3/4 w-3/4 bg-offwhite flex flex-col items-center justify-between overflow-hidden">
-						<div className="flex flex-col h-full items-center w-full justify-between p-16">
-							<div className="flex flex-col gap-16 items-center">
-								<div className="flex flex-col gap-8 w-full xl:w-2/3">
-									<h6 className="font-cormorant font-light text-brown text-lg md:text-2xl text-center">
+					<div className="h-3/4 w-3/4 bg-offwhite flex flex-col items-center justify-between gap-4 overflow-hidden">
+						<div className="flex flex-col h-full items-center w-full justify-between p-6 md:p-8 lg:p-12 xl:p-16">
+							<div className="flex flex-col gap-8 md:gap-10 xl:gap-16 items-center">
+								<div className="flex flex-col gap-4 md:gap-8 w-full xl:w-2/3 items-center">
+									<h6 className="font-cormorant font-light text-brown text-lg md:text-lg lg:text-xl xl:text-2xl text-center">
 										ಕಲಿಕೆ | <em className="font-medium italic">LEARNING</em>
 									</h6>
-									<h4 className="font-cormorant font-medium text-grey text-3xl md:text-4xl text-center">
+									<h4 className="font-cormorant font-medium text-grey text-2xl md:text-3xl lg:text-4xl text-center w-full">
 										<em className="italic font-bold text-brown">The Trust: </em>{" "}
 										<br />
 										Learning with Dignity, Growth with Inclusion
@@ -99,17 +99,17 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 									{/* Slide 1 */}
 									<motion.div
 										style={{ opacity: slide1Opacity }}
-										className="min-w-full flex justify-center px-4"
+										className="min-w-full flex justify-center px-2 md:px-4"
 									>
-										<div className="w-2/3 flex flex-col items-center gap-8">
-											<p className="w-full font-light font-cormorant text-center text-xl lg:text-2xl">
+										<div className=" w-full md:w-3/4 lg:w-2/3 flex flex-col items-center gap-4 xl:gap-8">
+											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
 												We walk the path of seva, shaping a future where
 												education becomes the bridge to empowerment. This
 												gurukul of inclusivity nurtures every learner—Divyang
 												and underserved alike—through compassion, acceptance,
 												and knowledge.
 											</p>
-											<p className="w-full font-light font-cormorant text-center text-xl lg:text-2xl">
+											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
 												This is more than a mission; it is a movement to create
 												and grow a space where learning, dignity, and belonging
 												thrive.
@@ -122,15 +122,15 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 										style={{ opacity: slide2Opacity }}
 										className="min-w-full flex justify-center px-4"
 									>
-										<div className="w-2/3 flex flex-col items-center gap-8">
-											<p className="w-full font-light font-cormorant text-center text-xl lg:text-2xl">
-												We walk the path of seva, shaping a where education
-												becomes the bridge to empowerment. This gurukul of
-												inclusivity nurtures every learner—Divyang and
-												underserved alike—through compassion, acceptance, and
-												knowledge.
+										<div className=" w-full md:w-3/4 lg:w-2/3 flex flex-col items-center gap-4 xl:gap-8">
+											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
+												We walk the path of seva, shaping a future where
+												education becomes the bridge to empowerment. This
+												gurukul of inclusivity nurtures every learner—Divyang
+												and underserved alike—through compassion, acceptance,
+												and knowledge.
 											</p>
-											<p className="w-full font-light font-cormorant text-center text-xl lg:text-2xl">
+											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
 												This is more than a mission; it is a movement to create
 												and grow a space where learning, dignity, and belonging
 												thrive.
@@ -142,11 +142,11 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 							<div className="flex gap-4">
 								<motion.div
 									style={{ opacity: dot1Opacity }}
-									className="w-12 h-2 bg-brown rounded-full"
+									className="w-8 md:w-12 h-1 md:h-2 bg-brown rounded-full"
 								></motion.div>
 								<motion.div
 									style={{ opacity: dot2Opacity }}
-									className="w-12 h-2 bg-brown rounded-full"
+									className="w-8 md:w-12 h-1 md:h-2 bg-brown rounded-full"
 								></motion.div>
 							</div>
 						</div>

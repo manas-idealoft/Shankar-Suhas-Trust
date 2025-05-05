@@ -12,35 +12,35 @@ import TrusteePopUp from "./trusteePopUp"; // Import popup
 const Navbar = () => {
 	const [toggle, setToggle] = useState(false); // Mobile menu state
 	const [showPopup, setShowPopup] = useState(false); // Trustee popup state
-		const [showNavbar, setShowNavbar] = useState(true);
-		const [lastScrollY, setLastScrollY] = useState(0);
+	const [showNavbar, setShowNavbar] = useState(true);
+	const [lastScrollY, setLastScrollY] = useState(0);
 
-		// Detect scroll direction
-		useEffect(() => {
-			const handleScroll = () => {
-				if (window.scrollY > lastScrollY && window.scrollY > 100) {
-					setShowNavbar(false); // Scrolling down
-				} else {
-					setShowNavbar(true); // Scrolling up
-				}
-				setLastScrollY(window.scrollY);
-			};
+	// Detect scroll direction
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > lastScrollY && window.scrollY > 100) {
+				setShowNavbar(false); // Scrolling down
+			} else if (window.scrollY < 100) {
+				setShowNavbar(true); // Scrolling up
+			}
+			setLastScrollY(window.scrollY);
+		};
 
-			window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-			return () => {
-				window.removeEventListener("scroll", handleScroll);
-			};
-		}, [lastScrollY]);
-	
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [lastScrollY]);
+
 	const location = useLocation(); // Current path
 
 	return (
 		<>
 			<nav
-				className={`px-8 md:px-24 pt-8 xl:pt-12 pb-4 flex items-center justify-between fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-offwhite ${
-					showNavbar ? "translate-y-0" : "-translate-y-full"
-				}`}
+				className={`px-8 md:px-24 pt-8 xl:pt-12 pb-4 flex items-center justify-between fixed top-0 left-0 w-full z-50 transition-transform duration-300 
+    ${showNavbar ? "translate-y-0" : "-translate-y-full"} 
+    ${location.pathname === "/" ? "bg-none" : "bg-offwhite"}`}
 			>
 				{/* Logo */}
 				<div>

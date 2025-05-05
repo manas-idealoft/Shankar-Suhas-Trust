@@ -1,5 +1,6 @@
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import {
 	arrowWhite,
 	buildingIcon1,
@@ -13,9 +14,6 @@ import {
 	buildingImage2,
 	communityIcon,
 	guidingForce,
-	originImage10,
-	originImage12,
-	originImgIcon,
 } from "../assets";
 
 const Home = () => {
@@ -25,16 +23,21 @@ const Home = () => {
 		"bg-com-section-3",
 	];
 	const [currentBg, setCurrentBg] = useState(0);
+	const targetRef = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: targetRef,
+	});
 
+	const x = useTransform(scrollYProgress, [0.1, 0.8], ["-250%", "-50%"]);
+	const cardOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-		const [isLarge, setIsLarge] = useState(window.innerWidth > 1280);
+	const [isLarge, setIsLarge] = useState(window.innerWidth > 1280);
 
-		useEffect(() => {
-			const handleResize = () => setIsLarge(window.innerWidth > 1280);
-			window.addEventListener("resize", handleResize);
-			return () => window.removeEventListener("resize", handleResize);
-		}, []);
-
+	useEffect(() => {
+		const handleResize = () => setIsLarge(window.innerWidth > 1280);
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -49,10 +52,10 @@ const Home = () => {
 			{/* Hero Section starts */}
 			<div
 				id="hero"
-				className="h-full md:min-h-svh bg-hero-bg-1 bg-no-repeat bg-cover bg-top pb-8 pt-36 md:pt-40 xl:pt-36 xl:pb-20 flex flex-col xl:flex-row gap-8 xl:justify-start px-8 md:px-24 font-cormorant text-grey "
+				className="h-[200vh] relative bg-hero-bg-1 bg-no-repeat bg-cover bg-top  font-cormorant text-grey pb-44"
 			>
-				<div className="font-normal text-grey md:text-xl w-full flex flex-col gap-8 xl:gap-2 items-center justify-between h-[90svh] xl:py-24">
-					<div className="flex flex-col gap-2 md:gap-4 lg:gap-8 items-center w-1/2">
+				<div className=" h-screen  top-0 sticky font-normal text-grey md:text-xl w-full flex flex-col gap-8 xl:gap-2 items-center justify-center xl:py-24">
+					<div className="flex flex-col gap-2 md:gap-4 lg:gap-8 items-center w-full md:w-2/3 lg:w-1/2">
 						<img
 							src={communityIcon}
 							alt="Icon showing leaves"
@@ -61,7 +64,7 @@ const Home = () => {
 						<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl text-center">
 							ಬಗ್ಗೆ | <em className="font-medium italic">ABOUT</em>
 						</h6>
-						<h3 className="font-normal md:font-semibold text-5xl text-brown text-center">
+						<h3 className="font-normal md:font-semibold text-3xl lg:text-5xl text-brown text-center">
 							A Facility Center for welfare <br />
 							of Old & Divyang
 						</h3>
@@ -83,49 +86,57 @@ const Home = () => {
 			{/* Hero Section ends */}
 
 			{/* Origin Section starts */}
-			<div
-				id="origin"
-				className=":min-h-screen flex px-8 md:px-24 justify-start py-12 lg:py-24 bg-origin-bg bg-no-repeat bg-cover"
-			>
-				<div className="w-full flex flex-col justify-start items-start gap-4 object-contain">
-					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
-						ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
-					</h6>
-					<h4 className="font-cormorant font-medium text-brown text-3xl md:text-5xl text-start">
-						The <em className="italic font-medium">Heartfelt Journey</em>
-						<br />
-						Behind This Trust
-					</h4>
-					<div className="flex flex-col xl:flex-row pt-8 lg:pt-12 gap-8 lg:gap-16 justify-between items-center md:items-start xl:items-center">
-						<div className="w-full xl:w-2/3 font-cormorant font-normal text-grey text-lg md:text-xl lg:text-2xl xl:text-xl text-start md:text-justify flex flex-col gap-4 md:gap-8">
-							<p>
+			<div id="origin" ref={targetRef} className="relative h-[300vh] ">
+				<div className="sticky top-0 h-screen px-8 md:px-24 py-4 lg:py-24 flex flex-col lg:flex-row items-center justify-start lg:justify-evenly bg-origin-bg bg-no-repeat bg-cover">
+					<div className="w-full lg:w-1/2 h-2/3 lg:h-full relative flex items-center justify-center overflow-hidden">
+						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card-bg bg-cover bg-right-top bg-no-repeat border-grey/15 border-2 w-10/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-3 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
+							<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-2xl ">
+								ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
+							</h6>
+							<h4 className="font-cormorant font-medium text-brown text-2xl lg:text-4xl  text-start">
+								The <em className="italic font-medium">Heartfelt Journey</em>
+								<br />
+								Behind This Trust
+							</h4>
+							<p className="font-cormorant text-base lg:text-xl">
 								The founders of the Shankar Suhas Trust, K. Ishwara Bhat, a
 								retired Principal from the Directorate of Education, Government
 								of N.C.T. of Delhi, and Mrs. Ganga Bhat, a retired officer from
 								a nationalized bank, established this Trust out of deep
-								compassion and a spirit of seva.
-							</p>
-							<p>
-								Being parents to two autistic sons, they witnessed firsthand the
-								struggles faced by Divyang individuals and the downtrodden,
-								often compounded by society&apos;s apathy. Moved by these
-								experiences and driven by a desire to serve, they registered the
-								Trust in 2018 in Mysuru, Karnataka, under the Indian
-								Registration Act.
-							</p>
-							<p>
-								The Trust, named after their sons, Shankar and Suhas, stands as
-								a beacon of hope, striving to foster inclusion, dignity, and
-								care for the differently-abled and the underprivileged.
+								compassion and a spirit of seva. Being parents to two autistic
+								sons, they witnessed firsthand the struggles faced
+								by Divyang individuals and the downtrodden, often compounded by
+								society's apathy.
 							</p>
 						</div>
-						<div className="relative flex-shrink-0 flex flex-col">
-							<img
-								src={guidingForce}
-								alt="Shankar and Suhas Bhat"
-								className="block max-w-full object-contain"
-							/>
-						</div>
+						<motion.div
+							style={{ x }}
+							className="absolute top-[12.5%] left-1/2 transform -translate-x-1/2  bg-beige bg-cover bg-right-top bg-no-repeat border-grey/15 border-2 w-10/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-20"
+						>
+							<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-2xl ">
+								ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
+							</h6>
+							<h4 className="font-cormorant font-medium text-brown text-2xl lg:text-4xl  text-start">
+								The <em className="italic font-medium">Heartfelt Journey</em>
+								<br />
+								Behind This Trust
+							</h4>
+							<p className="font-cormorant text-base lg:text-xl">
+								Moved by these experiences and driven by a desire to serve, they
+								registered the Trust in 2018 in Mysuru, Karnataka, under the
+								Indian Registration Act. The Trust, named after their sons,
+								Shankar and Suhas, stands as a beacon of hope, striving to
+								foster inclusion, dignity, and care for the differently-abled
+								and the underprivileged.
+							</p>
+						</motion.div>
+					</div>
+					<div className="h-1/3 lg:h-full w-full lg:w-1/2 flex-shrink-0 flex flex-col items-center justify-center">
+						<img
+							src={guidingForce}
+							alt="Shankar and Suhas Bhat"
+							className="block max-h-full lg:max-w-full object-contain"
+						/>
 					</div>
 				</div>
 			</div>
@@ -249,9 +260,9 @@ const Home = () => {
 			{/* Currently Section starts */}
 			<div
 				id="currently"
-				className="h-full lg:min-h-screen w-full bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center px-8 md:px-24 py-12 md:py-16 xl:py-24"
+				className="h-full lg:min-h-screen w-full bg-currently-bg  bg-no-repeat bg-center bg-cover flex items-center justify-center px-8 md:px-16 lg:px-24 py-12 md:py-16 xl:py-24"
 			>
-				<div className="flex flex-col w-4/6 gap-4 md:gap-6 items-start">
+				<div className="flex flex-col w-full md:w-10/12 lg:w-4/6 gap-4 md:gap-6 items-start">
 					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
 						ಇದೀಗ | <em className="font-medium italic">CURRENTLY</em>
 					</h6>

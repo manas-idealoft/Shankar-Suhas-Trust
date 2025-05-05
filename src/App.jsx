@@ -17,7 +17,7 @@ const AppLayout = () => {
 	const closePopup = () => setIsPopupOpen(false);
 
 	return (
-		<div className="bg-main-bg bg-beige h-full overflow-hidden">
+		<div className="bg-main-bg bg-beige h-full">
 			<Navbar onTrusteesClick={openPopup} />
 			<Outlet />
 			<Footer />
