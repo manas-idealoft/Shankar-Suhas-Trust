@@ -13,6 +13,18 @@ import {
 	originImage11,
 	originImage12,
 	originImage13,
+	originImage14,
+	originImage15,
+	originImage16,
+	originImage17,
+	originImage18,
+	originImage19,
+	originImage20,
+	originImage21,
+	originImage22,
+	originImage23,
+	originImage24,
+	originImage25,
 } from "../assets";
 
 import PropTypes from "prop-types";
@@ -119,6 +131,90 @@ const origin = [
 		description: "Event began with an auspicious Puja.",
 		link: "",
 	},
+	{
+		image: originImage14,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage15,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage16,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage17,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage18,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage19,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage20,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage21,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage22,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage23,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage24,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: originImage25,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
 ];
 
 const ImageSlideshow = () => {
@@ -200,12 +296,12 @@ const SlideContent = ({ item }) => (
 			alt={item.title}
 			className="w-full h-full object-cover"
 		/>
-		<div className="absolute bottom-4 left-4 p-2 xl:p-4 text-beige max-w-[90%] md:w-1/3 z-20 font-cormorant">
+		{/* <div className="absolute bottom-4 left-4 p-2 xl:p-4 text-beige max-w-[90%] md:w-1/3 z-20 font-cormorant">
 			<p className="text-base md:text-xl">{item.date}</p>
 			<h3 className="font-bold text-lg md:text-3xl">{item.title}</h3>
 			<p className="text-base md:text-xl">{item.description}</p>
 		</div>
-		<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+		<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div> */}
 	</>
 );
 

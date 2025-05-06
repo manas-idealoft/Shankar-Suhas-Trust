@@ -43,6 +43,18 @@ import originImage10 from "./Origin-Image-10.png";
 import originImage11 from "./Origin-Image-11.png";
 import originImage12 from "./Origin-Image-12.png";
 import originImage13 from "./Origin-Image-13.png";
+import originImage14 from "./Origin-Image-14.png";
+import originImage15 from "./Origin-Image-15.png";
+import originImage16 from "./Origin-Image-16.png";
+import originImage17 from "./Origin-Image-17.png";
+import originImage18 from "./Origin-Image-18.png";
+import originImage19 from "./Origin-Image-19.png";
+import originImage20 from "./Origin-Image-20.png";
+import originImage21 from "./Origin-Image-21.png";
+import originImage22 from "./Origin-Image-22.png";
+import originImage23 from "./Origin-Image-23.png";
+import originImage24 from "./Origin-Image-24.png";
+import originImage25 from "./Origin-Image-25.png";
 import purposeBg from "./purpose-bg-2.png";
 import purposeIcon from "./Purpose-icon.svg";
 import quoteMarkIcon from "./Quote-Mark-Icon.svg";
@@ -103,6 +115,18 @@ export {
 	originImage11,
 	originImage12,
 	originImage13,
+	originImage14,
+	originImage15,
+	originImage16,
+	originImage17,
+	originImage18,
+	originImage19,
+	originImage20,
+	originImage21,
+	originImage22,
+	originImage23,
+	originImage24,
+	originImage25,
 	purposeBg,
 	purposeIcon,
 	quoteMarkIcon,
