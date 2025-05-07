@@ -82,9 +82,9 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 				className="relative h-[200vh] bg-offwhite"
 			>
 				<div className="sticky h-screen top-0 bg-status-bg bg-top bg-cover flex items-center justify-center">
-					<div className="h-3/4 w-3/4 bg-offwhite flex flex-col items-center justify-between gap-4 overflow-hidden">
+					<div className="h-5/6 w-5/6 md:h-3/4 md:w-3/4 bg-offwhite flex flex-col items-center justify-between gap-4 overflow-hidden">
 						<div className="flex flex-col h-full items-center w-full justify-between p-6 md:p-8 lg:p-12 xl:p-16">
-							<div className="flex flex-col gap-8 md:gap-10 xl:gap-16 items-center">
+							<div className="flex flex-col gap-4 md:gap-10 xl:gap-16 items-center">
 								<div className="flex flex-col gap-4 md:gap-8 w-full xl:w-2/3 items-center">
 									<h6 className="font-cormorant font-light text-brown text-lg md:text-lg lg:text-xl xl:text-2xl text-center">
 										ಕಲಿಕೆ | <em className="font-medium italic">LEARNING</em>
@@ -158,51 +158,6 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 				</div>
 			</div>
 
-			{/* <div
-				id="learning"
-				className="h-full  bg-status-bg bg-no-repeat bg-top md:bg-center bg-contain md:bg-cover flex flex-col px-8 md:px-12 lg:px-24 gap-8 md:gap-16 lg:gap-20 xl:gap-24 pt-12 pb-24 md:py-36"
-			>
-				<div className="flex flex-col xl:flex-row justify-between w-full items-start md:items-center xl:items-start gap-24 md:gap-8">
-					<div className="flex flex-col text-start md:items-center xl:items-start w-full xl:w-5/12 gap-4">
-						<h6 className="font-cormorant font-light text-brown text-lg md:text-2xl text-start md:text-center xl:text-start">
-							ಕಲಿಕೆ | <em className="font-medium italic">LEARNING</em>
-						</h6>
-						<img
-							src={statusIcon}
-							alt="Icon showing two sets of leaves"
-							className="w-12 lg:w-16"
-						/>
-					</div>
-					<div className="w-full md:w-2/3 xl:w-2/5  text-xl lg:text-2xl font-light font-cormorant text-start md:text-center lg:text-justify xl:text-start flex flex-col gap-8">
-						<h4 className="font-cormorant font-medium text-grey text-3xl md:text-4xl text-start md:text-center xl:text-start">
-							<em className="italic font-semibold">The Trust: </em>{" "}
-							<br className="block md:hidden" />
-							Learning with Dignity, Growth with Inclusion
-						</h4>
-						<p>
-							We walk the path of seva, shaping a future where education becomes
-							the bridge to empowerment. This gurukul of inclusivity nurtures
-							every learner—Divyang and underserved alike—through compassion,
-							acceptance, and knowledge.
-						</p>
-						<p>
-							This is more than a mission; it is a movement to create and grow a
-							space where learning, dignity, and belonging thrive.
-						</p>
-						<p>
-							The Shankar Suhas Trust is building an{" "}
-							<em className="font-semibold">inclusive school</em> where
-							education transcends barriers. Rooted in{" "}
-							<em className="font-semibold">
-								sneh (affection) and seva (service),
-							</em>{" "}
-							this space welcomes children from all backgrounds, ensuring
-							Divyang students and underserved communities receive equal
-							opportunities to learn and grow.
-						</p>
-					</div>
-				</div>
-			</div> */}
 			{/* Learning Section ends */}
 
 			{/* Activities Section begins */}

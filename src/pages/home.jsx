@@ -64,14 +64,15 @@ const Home = () => {
 							ಬಗ್ಗೆ | <em className="font-medium italic">ABOUT</em>
 						</h6>
 						<h3 className="font-normal md:font-semibold text-3xl lg:text-5xl text-brown text-center">
-							A Facility Center for welfare <br />
+							A Facility Center for Welfare <br />
 							of Old & Divyang
 						</h3>
 						<p className="text-lg md:text-2xl lg:text-3xl xl:text-2xl text-center w-3/4">
 							Shankar Suhas Trust is mainly dedicated to establish a{" "}
 							<em className="font-bold not-italic">
 								facility center for the welfare of the old and the divyang.
-							</em> Also to establish institution for general education, with{" "}
+							</em>{" "}
+							Also to establish institution for general education, with{" "}
 							<em className="font-bold not-italic">
 								emphasis on the integration of the divyang students.
 							</em>
@@ -87,7 +88,7 @@ const Home = () => {
 					<div className="w-full lg:w-1/2 h-2/3 lg:h-full relative flex items-center justify-center overflow-hidden">
 						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-offwhite border-grey/15 border-2 w-11/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-3 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
 							<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-2xl ">
-								ಕಥೆ | <em className="font-medium italic">ORIGIN</em>
+								ಮೂಲ | <em className="font-medium italic">ORIGIN</em>
 							</h6>
 							<h4 className="font-cormorant font-medium text-brown text-2xl lg:text-4xl  text-start">
 								The <em className="italic font-medium">Heartfelt Journey</em>
@@ -178,7 +179,7 @@ const Home = () => {
 					<div className=" w-full xl:w-7/12 h-full px-4 md:px-12 py-12 flex flex-col justify-between gap-6 md:gap-12 xl:gap-6 xl:items-start items-center">
 						<div className="flex flex-col gap-3 md:gap-6 xl:items-start items-center">
 							<h6 className="font-cormorant font-light text-brown text-base md:text-lg xl:text-xl text-center xl:text-start">
-								ನಿರ್ಮಿಸಲು | <em className="font-medium italic">BUILDING</em>
+								ನಿರ್ಮಾಣ | <em className="font-medium italic">BUILDING</em>
 							</h6>
 							<h4 className="font-cormorant font-normal text-brown text-2xl md:text-4xl xl:text-5xl text-center xl:text-start">
 								Weaving Lives, Nurturing
@@ -260,7 +261,7 @@ const Home = () => {
 			>
 				<div className="flex flex-col w-full md:w-10/12 lg:w-4/6 gap-4 md:gap-6 items-start">
 					<h6 className="font-cormorant font-light text-terracotta text-lg md:text-xl">
-						ಇದೀಗ | <em className="font-medium italic">CURRENTLY</em>
+						ಪ್ರಸ್ತುತ | <em className="font-medium italic">CURRENTLY</em>
 					</h6>
 					<h4 className="font-cormorant font-normal text-grey text-2xl md:text-4xl">
 						Details to&nbsp;
