@@ -390,9 +390,11 @@ const Contribute = () => {
 								4, Parthasarathynagara, Dasankoppal Gate, Bogadi, Mysuru-570 026
 							</p>
 							<div className="pt-4 md:pt-12">
-								<a href="mailto:contact@sst.org">contact@sst.org</a>
+								<a href="mailto:shankarsuhastrust@gmail.com">
+									shankarsuhastrust@gmail.com
+								</a>
 								<br />
-								<a href="tel:+910000000000">+91 000 000 0000</a>
+								<a href="tel:+919810115177">+91 981 011 5177</a>
 							</div>
 						</div>
 					</div>
