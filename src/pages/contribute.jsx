@@ -93,7 +93,7 @@ const Contribute = () => {
 
 		try {
 			await fetch(
-				"https://script.google.com/macros/s/AKfycbyrtHSp7NZuae6VHG1Z3hpnDSrPUcZcwCIAzRBXPIJ2ds14xRxZpak7kdmQevh7FQlePA/exec",
+				"https://script.google.com/macros/s/AKfycby_IbrCvcQfZLREhq3fhRkO75nbMAIP8l2uT1R7T7cNMeOmdtyLiFX2RBkhxEHbuhz5DA/exec",
 				{
 					method: "POST",
 					body: JSON.stringify(submissionData),
@@ -198,9 +198,11 @@ const Contribute = () => {
 									026
 								</p>
 								<div className="pt-4 md:pt-12">
-									<a href="mailto:contact@sst.org">contact@sst.org</a>
+									<a href="mailto:shankarsuhastrust@gmail.com">
+										shankarsuhastrust@gmail.com
+									</a>
 									<br />
-									<a href="tel:+910000000000">+91 000 000 0000</a>
+									<a href="tel:+919810115177">+91 981 011 5177</a>
 								</div>
 							</div>
 						</div>
