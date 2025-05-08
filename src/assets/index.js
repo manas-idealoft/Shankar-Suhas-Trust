@@ -5,8 +5,8 @@ import arrowWhite from "./Arrow-Right-White.svg";
 import arrowBlack from "./Arrow-Right-Black.svg";
 import arrowDown from "./Arrow-icon-down.svg"
 import buildingIconMain from "./Building-Icon.svg"
-import buildingImage1 from "./Building-Image-1.png";
-import buildingImage2 from "./Building-Image-2.png";
+import buildingImage1 from "./Building-Image-1.webp";
+import buildingImage2 from "./Building-Image-2.webp";
 import buildingIcon1 from "./Building-Icon-1.svg";
 import buildingIcon2 from "./Building-Icon-2.svg";
 import buildingIcon3 from "./Building-Icon-3.svg";
@@ -16,57 +16,50 @@ import buildingIcon6 from "./Building-Icon-6.svg";
 import chevronDown from "./Chevron-down.svg"
 import chevronUp from "./Chevron-up.svg";
 import communityIcon from "./Community-icon.svg"
-import heroImage1 from "./Hero-Image-1.png"
-import heroImage2 from "./Hero-Image-2.png";
-import heroImage3 from "./Hero-Image-3.png";
-import heroImage4 from "./Hero-Image-4.png";
-import heroImage5 from "./Hero-Image-5.png";
-import heroImage6 from "./Hero-Image-6.png";
-import heroImage7 from "./Hero-Image-7.png";
-import communitySectionImage1 from "./Community-Section-Image-1.png";
-import communitySectionImage2 from "./Community-Section-Image-2.png";
-import communitySectionImage3 from "./Community-Section-Image-3.png";
+import communitySectionImage1 from "./Community-Section-Image-1.webp";
+import communitySectionImage2 from "./Community-Section-Image-2.webp";
+import communitySectionImage3 from "./Community-Section-Image-3.webp";
 import crossIcon from "./Cross-icon.svg";
 import hamburgerIcon from "./Hamburger-icon.svg";
 import mapIcon from "./Map-Icon.svg";
-import originBG from "./Origin-Bg.png";
-import originImage1 from "./Origin-Image-1.png";
-import originImage2 from "./Origin-Image-2.png";
-import originImage3 from "./Origin-Image-3.png";
-import originImage4 from "./Origin-Image-4.png";
-import originImage5 from "./Origin-Image-5.png";
-import originImage6 from "./Origin-Image-6.png";
-import originImage7 from "./Origin-Image-7.png";
-import originImage8 from "./Origin-Image-8.png";
-import originImage9 from "./Origin-Image-9.png";
-import originImage10 from "./Origin-Image-10.png";
-import originImage11 from "./Origin-Image-11.png";
-import originImage12 from "./Origin-Image-12.png";
-import originImage13 from "./Origin-Image-13.png";
-import originImage14 from "./Origin-Image-14.png";
-import originImage15 from "./Origin-Image-15.png";
-import originImage16 from "./Origin-Image-16.png";
-import originImage17 from "./Origin-Image-17.png";
-import originImage18 from "./Origin-Image-18.png";
-import originImage19 from "./Origin-Image-19.png";
-import originImage20 from "./Origin-Image-20.png";
-import originImage21 from "./Origin-Image-21.png";
-import originImage22 from "./Origin-Image-22.png";
-import originImage23 from "./Origin-Image-23.png";
-import originImage24 from "./Origin-Image-24.png";
-import originImage25 from "./Origin-Image-25.png";
-import purposeBg from "./purpose-bg-2.png";
+import originBG from "./Origin-Bg.webp";
+import originImage1 from "./Origin-Image-1.webp";
+import originImage2 from "./Origin-Image-2.webp";
+import originImage3 from "./Origin-Image-3.webp";
+import originImage4 from "./Origin-Image-4.webp";
+import originImage5 from "./Origin-Image-5.webp";
+import originImage6 from "./Origin-Image-6.webp";
+import originImage7 from "./Origin-Image-7.webp";
+import originImage8 from "./Origin-Image-8.webp";
+import originImage9 from "./Origin-Image-9.webp";
+import originImage10 from "./Origin-Image-10.webp";
+import originImage11 from "./Origin-Image-11.webp";
+import originImage12 from "./Origin-Image-12.webp";
+import originImage13 from "./Origin-Image-13.webp";
+import originImage14 from "./Origin-Image-14.webp";
+import originImage15 from "./Origin-Image-15.webp";
+import originImage16 from "./Origin-Image-16.webp";
+import originImage17 from "./Origin-Image-17.webp";
+import originImage18 from "./Origin-Image-18.webp";
+import originImage19 from "./Origin-Image-19.webp";
+import originImage20 from "./Origin-Image-20.webp";
+import originImage21 from "./Origin-Image-21.webp";
+import originImage22 from "./Origin-Image-22.webp";
+import originImage23 from "./Origin-Image-23.webp";
+import originImage24 from "./Origin-Image-24.webp";
+import originImage25 from "./Origin-Image-25.webp";
+import purposeBg from "./purpose-bg-2.webp";
 import purposeIcon from "./Purpose-icon.svg";
 import quoteMarkIcon from "./Quote-Mark-Icon.svg";
 import statusIcon from "./Status-icon.svg";
 import trusteesIcon from "./Trustees-icon.svg";
-import trustee1 from "./trustee1.png";
-import trustee2 from "./trustee2.png";
-import trustee3 from "./trustee3.png";
-import trustee4 from "./trustee4.png";
-import trustee5 from "./trustee5.png";
+import trustee1 from "./trustee1.webp";
+import trustee2 from "./trustee2.webp";
+import trustee3 from "./trustee3.webp";
+import trustee4 from "./trustee4.webp";
+import trustee5 from "./trustee5.webp";
 import zoomIcon from "./Zoom-icon.svg";
-import guidingForce from './Guiding-Force.png';
+import guidingForce from './Guiding-Force.webp';
 import originImgIcon from './origin-img-icon.svg';
 
 export {
@@ -88,13 +81,6 @@ export {
 	chevronDown,
 	chevronUp,
 	communityIcon,
-	heroImage1,
-	heroImage2,
-	heroImage3,
-	heroImage4,
-	heroImage5,
-	heroImage6,
-	heroImage7,
 	communitySectionImage1,
 	communitySectionImage2,
 	communitySectionImage3,
