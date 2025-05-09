@@ -86,7 +86,7 @@ const Home = () => {
 			<div id="origin" ref={targetRef} className="relative h-[300vh] ">
 				<div className="sticky top-0 h-screen px-4 md:px-24 py-4 lg:py-24 flex flex-col lg:flex-row items-center justify-start lg:justify-evenly bg-origin-bg bg-no-repeat bg-cover">
 					<div className="w-full lg:w-1/2 h-2/3 lg:h-full relative flex items-center justify-center overflow-hidden">
-						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-offwhite border-grey/15 border-2 w-11/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-3 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
+						<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-offwhite border-grey/15 border-2 w-11/12 md:w-3/4 xl:w-2/3 h-4/5 p-4 md:p-8 rotate-2 flex flex-col gap-2 lg:gap-4 xl:gap-8 z-10">
 							<h6 className="font-cormorant font-light text-terracotta text-base md:text-lg lg:text-2xl ">
 								ಮೂಲ | <em className="font-medium italic">ORIGIN</em>
 							</h6>
