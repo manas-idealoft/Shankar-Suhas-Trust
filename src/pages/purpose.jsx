@@ -126,7 +126,7 @@ const slide2Opacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1]);
 											<p className="w-full font-light font-cormorant text-justify md:text-center text-base md:text-lg lg:text-xl xl:text-2xl">
 												The Shankar Suhas Trust is building an{" "}
 												<em className="font-bold not-italic">
-													inclusive school
+													inclusive school&nbsp;
 												</em>
 												where education transcends barriers.
 											</p>

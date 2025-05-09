@@ -6,7 +6,7 @@ import Purpose from "./pages/purpose";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import TrusteePopUp from "./components/trusteePopUp";
-
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppLayout = () => {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -18,6 +18,7 @@ const AppLayout = () => {
 
 	return (
 		<div className="bg-main-bg bg-beige h-full">
+			<ScrollToTop />
 			<Navbar onTrusteesClick={openPopup} />
 			<Outlet />
 			<Footer />
