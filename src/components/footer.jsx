@@ -9,7 +9,7 @@ const Footer = () => {
 					<img src={logo} alt="Logo" className="w-24" />
 				</Link>
 				<h6 className="font-cormorant font-medium italic text-3xl md:text-4xl text-terracotta">
-					Shankas Suhas <br />
+					Shankar Suhas <br />
 					Charitable Trust
 				</h6>
 			</div>
