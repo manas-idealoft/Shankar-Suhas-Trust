@@ -61,6 +61,7 @@ import trustee5 from "./trustee5.webp";
 import zoomIcon from "./Zoom-icon.svg";
 import guidingForce from './Guiding-Force.webp';
 import originImgIcon from './origin-img-icon.svg';
+import imageSlideshowVideo from "./ShankarSuhas_ImageSlideshow.mp4";
 
 export {
 	logo,
@@ -126,4 +127,5 @@ export {
 	zoomIcon,
 	guidingForce,
 	originImgIcon,
+	imageSlideshowVideo,
 };

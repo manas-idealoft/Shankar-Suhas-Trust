@@ -25,6 +25,7 @@ import {
 	originImage23,
 	originImage24,
 	originImage25,
+	imageSlideshowVideo,
 } from "../assets";
 
 import PropTypes from "prop-types";
@@ -40,6 +41,7 @@ import { useState, useEffect } from "react";
 const origin = [
 	{
 		image: originImage1,
+		video: "",
 		date: "28/02/25",
 		title: "Trust Map",
 		description: "A peek at the map and details of the trust site",
@@ -47,6 +49,7 @@ const origin = [
 	},
 	{
 		image: originImage2,
+		video: "",
 		date: "28/02/2025",
 		title: "Solar Power Plant Addition",
 		description:
@@ -55,6 +58,7 @@ const origin = [
 	},
 	{
 		image: originImage3,
+		video: "",
 		date: "28/02/2025",
 		title: "One Of The Initial Donations",
 		description: "Memory of one of the initial trust contributors",
@@ -62,6 +66,7 @@ const origin = [
 	},
 	{
 		image: originImage4,
+		video: "",
 		date: "28/02/2025",
 		title: "Cultural program",
 		description: "Stills from program dance performance",
@@ -69,6 +74,7 @@ const origin = [
 	},
 	{
 		image: originImage5,
+		video: "",
 		date: "28/02/2025",
 		title: "Cultural program",
 		description: "Stills from the cultural inauguration program",
@@ -76,6 +82,7 @@ const origin = [
 	},
 	{
 		image: originImage6,
+		video: "",
 		date: "28/02/2025",
 		title: "Guests",
 		description: "Honourable guests at the inauguration program",
@@ -83,6 +90,7 @@ const origin = [
 	},
 	{
 		image: originImage7,
+		video: "",
 		date: "28/02/2025",
 		title: "Guest Donation",
 		description: "Honourable guests providing a token of contribution",
@@ -90,6 +98,7 @@ const origin = [
 	},
 	{
 		image: originImage8,
+		video: "",
 		date: "28/02/2025",
 		title: "Guest Donation",
 		description: "Honourable guests providing a token of contribution",
@@ -97,6 +106,7 @@ const origin = [
 	},
 	{
 		image: originImage9,
+		video: "",
 		date: "28/02/2025",
 		title: "Program Inauguration",
 		description: "Honourable guests initiating the inauguration program",
@@ -104,6 +114,7 @@ const origin = [
 	},
 	{
 		image: originImage10,
+		video: "",
 		date: "28/02/2025",
 		title: "Foundation Family",
 		description: "Glance of the Shankar Suhas Family",
@@ -111,6 +122,7 @@ const origin = [
 	},
 	{
 		image: originImage11,
+		video: "",
 		date: "28/02/2025",
 		title: "Celebration",
 		description: "Sounds of drums and music filled the air at the inauguration",
@@ -118,6 +130,7 @@ const origin = [
 	},
 	{
 		image: originImage12,
+		video: "",
 		date: "28/02/2025",
 		title: "Inspection of the Site",
 		description:
@@ -126,6 +139,7 @@ const origin = [
 	},
 	{
 		image: originImage13,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -133,6 +147,7 @@ const origin = [
 	},
 	{
 		image: originImage14,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -140,6 +155,7 @@ const origin = [
 	},
 	{
 		image: originImage15,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -147,6 +163,7 @@ const origin = [
 	},
 	{
 		image: originImage16,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -154,6 +171,7 @@ const origin = [
 	},
 	{
 		image: originImage17,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -161,6 +179,7 @@ const origin = [
 	},
 	{
 		image: originImage18,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -168,6 +187,7 @@ const origin = [
 	},
 	{
 		image: originImage19,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -175,6 +195,7 @@ const origin = [
 	},
 	{
 		image: originImage20,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -182,6 +203,7 @@ const origin = [
 	},
 	{
 		image: originImage21,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -189,6 +211,7 @@ const origin = [
 	},
 	{
 		image: originImage22,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -196,6 +219,7 @@ const origin = [
 	},
 	{
 		image: originImage23,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -203,6 +227,7 @@ const origin = [
 	},
 	{
 		image: originImage24,
+		video: "",
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -210,6 +235,15 @@ const origin = [
 	},
 	{
 		image: originImage25,
+		video: "",
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
+	{
+		image: "",
+		video: imageSlideshowVideo,
 		date: "28/02/2025",
 		title: "An Auspicious Start",
 		description: "Event began with an auspicious Puja.",
@@ -220,10 +254,41 @@ const origin = [
 const ImageSlideshow = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [thumbnails, setThumbnails] = useState([]);
+	const [swiperInstance, setSwiperInstance] = useState(null);
+
+	useEffect(() => {
+		if (!swiperInstance) return;
+		if (!swiperInstance.params || !swiperInstance.autoplay) return; // <-- safe guard
+
+		const currentSlide = origin[activeIndex];
+		const delay = currentSlide.video ? 20000 : 3000;
+
+		swiperInstance.params.autoplay.delay = delay;
+		swiperInstance.autoplay.stop();
+		swiperInstance.autoplay.start();
+	}, [activeIndex, swiperInstance]);
 
 	useEffect(() => {
 		if (thumbsSwiper) thumbsSwiper.slideTo(activeIndex);
 	}, [activeIndex, thumbsSwiper]);
+
+	// Generate thumbnails for videos
+	useEffect(() => {
+		const generateThumbnails = async () => {
+			const thumbArray = await Promise.all(
+				origin.map(async (item) => {
+					if (item.video) {
+						return await getVideoThumbnail(item.video);
+					}
+					return item.image;
+				})
+			);
+			setThumbnails(thumbArray);
+		};
+
+		generateThumbnails();
+	}, []);
 
 	return (
 		<div className="relative w-full h-full flex flex-col gap-4">
@@ -236,6 +301,7 @@ const ImageSlideshow = () => {
 				loop
 				modules={[FreeMode, Navigation, Thumbs, Autoplay]}
 				className="w-full h-[60vh] md:h-full md:aspect-video" // Adjust height and aspect ratio here
+				onSwiper={(swiper) => setSwiperInstance(swiper)} // Save swiper instance here
 				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
 			>
 				{origin.map((item, index) => (
@@ -266,11 +332,11 @@ const ImageSlideshow = () => {
 				modules={[FreeMode, Navigation, Thumbs]}
 				className="w-full h-20 lg:h-full"
 			>
-				{origin.map((item, index) => (
+				{thumbnails.map((thumb, index) => (
 					<SwiperSlide key={index} className="cursor-pointer">
 						<div className="relative">
 							<img
-								src={item.image}
+								src={thumb}
 								alt={`Thumbnail ${index + 1}`}
 								className={`w-16 h-16 md:w-20 lg:w-24 md:h-20 lg:h-24 object-cover rounded-md transition-all duration-300 ${
 									index === activeIndex
@@ -291,11 +357,21 @@ const ImageSlideshow = () => {
 
 const SlideContent = ({ item }) => (
 	<>
-		<img
-			src={item.image}
-			alt={item.title}
-			className="w-full h-full object-cover"
-		/>
+		{item.video ? (
+			<video
+				src={item.video}
+				controls
+				autoPlay
+				muted
+				className="w-full h-full object-cover"
+			/>
+		) : (
+			<img
+				src={item.image}
+				alt={item.title}
+				className="w-full h-full object-cover"
+			/>
+		)}
 		{/* <div className="absolute bottom-4 left-4 p-2 xl:p-4 text-beige max-w-[90%] md:w-1/3 z-20 font-cormorant">
 			<p className="text-base md:text-xl">{item.date}</p>
 			<h3 className="font-bold text-lg md:text-3xl">{item.title}</h3>
@@ -308,10 +384,35 @@ const SlideContent = ({ item }) => (
 SlideContent.propTypes = {
 	item: PropTypes.shape({
 		image: PropTypes.string.isRequired,
+		video: PropTypes.string,
 		title: PropTypes.string.isRequired,
 		date: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 	}),
+};
+
+// Utility: Extract first frame from video
+const getVideoThumbnail = (videoUrl) => {
+	return new Promise((resolve) => {
+		const video = document.createElement("video");
+		video.src = videoUrl;
+		video.crossOrigin = "anonymous";
+		video.muted = true;
+		video.playsInline = true;
+
+		video.addEventListener("loadeddata", () => {
+			video.currentTime = 0.1; // a bit into the video to ensure frame is ready
+		});
+
+		video.addEventListener("seeked", () => {
+			const canvas = document.createElement("canvas");
+			canvas.width = video.videoWidth;
+			canvas.height = video.videoHeight;
+			const ctx = canvas.getContext("2d");
+			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+			resolve(canvas.toDataURL("image/png"));
+		});
+	});
 };
 
 export default ImageSlideshow;
