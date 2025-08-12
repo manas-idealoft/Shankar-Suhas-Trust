@@ -241,14 +241,14 @@ const origin = [
 		description: "Event began with an auspicious Puja.",
 		link: "",
 	},
-	// {
-	// 	image: "",
-	// 	video: imageSlideshowVideo,
-	// 	date: "28/02/2025",
-	// 	title: "An Auspicious Start",
-	// 	description: "Event began with an auspicious Puja.",
-	// 	link: "",
-	// },
+	{
+		image: "",
+		video: imageSlideshowVideo,
+		date: "28/02/2025",
+		title: "An Auspicious Start",
+		description: "Event began with an auspicious Puja.",
+		link: "",
+	},
 ];
 
 const ImageSlideshow = () => {
