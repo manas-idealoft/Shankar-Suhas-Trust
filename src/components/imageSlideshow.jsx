@@ -1,3 +1,14 @@
+"use client";
+
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import "swiper/css/autoplay";
+import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
 
 import {
 	originImage1,
@@ -27,16 +38,6 @@ import {
 	originImage25,
 	imageSlideshowVideo,
 } from "../assets";
-
-import PropTypes from "prop-types";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import "swiper/css/autoplay";
-import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper/modules";
-import { useState, useEffect } from "react";
 
 const origin = [
 	{
@@ -251,26 +252,78 @@ const origin = [
 	},
 ];
 
-const ImageSlideshow = () => {
+export default function ImageSlideshow() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [thumbnails, setThumbnails] = useState([]);
 	const [swiperInstance, setSwiperInstance] = useState(null);
 
+	// Play/pause logic when slides change
 	useEffect(() => {
 		if (!swiperInstance) return;
-		if (!swiperInstance.params || !swiperInstance.autoplay) return; // <-- safe guard
 
-		const currentSlide = origin[activeIndex];
-		const delay = currentSlide.video ? 20000 : 3000;
+		const playActiveVideo = () => {
+			// Pause all videos first
+			swiperInstance.slides.forEach((slideEl) => {
+				const vid = slideEl.querySelector("video");
+				if (vid) {
+					vid.pause();
+					vid.currentTime = 0;
+				}
+			});
 
-		swiperInstance.params.autoplay.delay = delay;
-		swiperInstance.autoplay.stop();
-		swiperInstance.autoplay.start();
-	}, [activeIndex, swiperInstance]);
+			const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+			if (!activeSlide) return;
 
+			const video = activeSlide.querySelector("video");
+			const isVideoSlide = Boolean(video);
+
+			if (isVideoSlide && video) {
+				// Pause Swiper autoplay so the video can play fully
+				if (swiperInstance.autoplay) swiperInstance.autoplay.stop();
+
+				// Ensure mobile autoplay works
+				video.muted = true;
+				video.setAttribute("playsinline", "");
+				video.onended = null;
+				video.onended = () => {
+					swiperInstance.slideNext();
+					if (swiperInstance.autoplay) swiperInstance.autoplay.start();
+				};
+
+				video.play().catch(() => {});
+			} else {
+				// Non-video slide: (re)start Swiper autoplay with your preferred delay
+				if (swiperInstance.autoplay) {
+					swiperInstance.params.autoplay.delay = 3000;
+					swiperInstance.autoplay.stop();
+					swiperInstance.autoplay.start();
+				}
+			}
+		};
+
+		const onChange = () => {
+			setActiveIndex(swiperInstance.realIndex);
+			playActiveVideo();
+		};
+
+		swiperInstance.on("init", playActiveVideo);
+		swiperInstance.on("slideChange", onChange);
+
+		// If already initialized (Next.js hot reload), run once
+		if (swiperInstance.initialized) playActiveVideo();
+
+		return () => {
+			swiperInstance.off("init", playActiveVideo);
+			swiperInstance.off("slideChange", onChange);
+		};
+	}, [swiperInstance]);
+
+	// Keep thumbs in sync (thumbs should NOT loop)
 	useEffect(() => {
-		if (thumbsSwiper) thumbsSwiper.slideTo(activeIndex);
+		if (thumbsSwiper && typeof thumbsSwiper.slideTo === "function") {
+			thumbsSwiper.slideTo(activeIndex);
+		}
 	}, [activeIndex, thumbsSwiper]);
 
 	// Generate thumbnails for videos
@@ -279,9 +332,10 @@ const ImageSlideshow = () => {
 			const thumbArray = await Promise.all(
 				origin.map(async (item) => {
 					if (item.video) {
-						return await getVideoThumbnail(item.video);
+						const thumb = await getVideoThumbnail(item.video);
+						return thumb || "";
 					}
-					return item.image;
+					return item.image || "";
 				})
 			);
 			setThumbnails(thumbArray);
@@ -300,8 +354,8 @@ const ImageSlideshow = () => {
 				autoplay={{ delay: 3000, disableOnInteraction: false }}
 				loop
 				modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-				className="w-full h-[60vh] md:h-full md:aspect-video" // Adjust height and aspect ratio here
-				onSwiper={(swiper) => setSwiperInstance(swiper)} // Save swiper instance here
+				className="w-full h-[60vh] md:h-full md:aspect-video"
+				onSwiper={setSwiperInstance}
 				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
 			>
 				{origin.map((item, index) => (
@@ -328,7 +382,7 @@ const ImageSlideshow = () => {
 				}}
 				freeMode
 				watchSlidesProgress
-				loop
+				loop={false} // IMPORTANT: thumbs should not loop
 				modules={[FreeMode, Navigation, Thumbs]}
 				className="w-full h-20 lg:h-full"
 			>
@@ -353,66 +407,95 @@ const ImageSlideshow = () => {
 			</Swiper>
 		</div>
 	);
-};
+}
 
-const SlideContent = ({ item }) => (
-	<>
-		{item.video ? (
-			<video
-				src={item.video}
-				controls
-				autoPlay
-				muted
-				className="w-full h-full object-cover"
-			/>
-		) : (
-			<img
-				src={item.image}
-				alt={item.title}
-				className="w-full h-full object-cover"
-			/>
-		)}
-		{/* <div className="absolute bottom-4 left-4 p-2 xl:p-4 text-beige max-w-[90%] md:w-1/3 z-20 font-cormorant">
-			<p className="text-base md:text-xl">{item.date}</p>
-			<h3 className="font-bold text-lg md:text-3xl">{item.title}</h3>
-			<p className="text-base md:text-xl">{item.description}</p>
-		</div>
-		<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div> */}
-	</>
-);
+function SlideContent({ item }) {
+	return (
+		<>
+			{item.video ? (
+				<video
+					src={item.video}
+					controls
+					muted
+					playsInline
+					className="w-full h-full object-cover"
+				/>
+			) : (
+				<img
+					src={item.image || ""}
+					alt={item.title || ""}
+					className="w-full h-full object-cover"
+				/>
+			)}
+		</>
+	);
+}
 
 SlideContent.propTypes = {
 	item: PropTypes.shape({
-		image: PropTypes.string.isRequired,
+		image: PropTypes.string,
 		video: PropTypes.string,
-		title: PropTypes.string.isRequired,
-		date: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
+		title: PropTypes.string,
+		date: PropTypes.string,
+		description: PropTypes.string,
 	}),
 };
 
-// Utility: Extract first frame from video
-const getVideoThumbnail = (videoUrl) => {
+// Utility: Extract first frame from video (SSR safe)
+function getVideoThumbnail(videoUrl) {
+	if (typeof window === "undefined") return Promise.resolve(null);
+
 	return new Promise((resolve) => {
 		const video = document.createElement("video");
 		video.src = videoUrl;
 		video.crossOrigin = "anonymous";
 		video.muted = true;
-		video.playsInline = true;
+		video.setAttribute("playsinline", "");
 
-		video.addEventListener("loadeddata", () => {
-			video.currentTime = 0.1; // a bit into the video to ensure frame is ready
-		});
+		const cleanup = () => {
+			video.removeAttribute("src");
+			video.load();
+		};
 
-		video.addEventListener("seeked", () => {
-			const canvas = document.createElement("canvas");
-			canvas.width = video.videoWidth;
-			canvas.height = video.videoHeight;
-			const ctx = canvas.getContext("2d");
-			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-			resolve(canvas.toDataURL("image/png"));
-		});
+		const fail = () => {
+			cleanup();
+			resolve(null);
+		};
+
+		video.addEventListener("error", fail, { once: true });
+		video.addEventListener(
+			"loadedmetadata",
+			() => {
+				try {
+					video.currentTime = Math.min(
+						0.1,
+						Math.max(0, (video.duration || 1) * 0.01)
+					);
+				} catch (e) {
+					fail();
+				}
+			},
+			{ once: true }
+		);
+
+		video.addEventListener(
+			"seeked",
+			() => {
+				try {
+					const canvas = document.createElement("canvas");
+					canvas.width = video.videoWidth || 320;
+					canvas.height = video.videoHeight || 180;
+					const ctx = canvas.getContext("2d");
+					if (!ctx) return fail();
+					ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+					const dataUrl = canvas.toDataURL("image/png");
+					cleanup();
+					resolve(dataUrl);
+				} catch (e) {
+					fail();
+				}
+			},
+			{ once: true }
+		);
 	});
-};
-
-export default ImageSlideshow;
+}
