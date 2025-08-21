@@ -200,7 +200,7 @@ const Home = () => {
 								<p className="text-center lg:text-left">
 									To establish and run a center for the welfare of old and
 									divyanga, The word divyanga shall include slow-learners,
-									mentally retarded and such other physically disabled people
+									neuro-diverse and such other physically disabled people
 									also.
 								</p>
 							</div>
@@ -232,13 +232,6 @@ const Home = () => {
 								<p className="text-center lg:text-left">
 									To provide both medical and financial relief to the poor and
 									needy.
-								</p>
-							</div>
-							<div className="flex flex-col lg:flex-row gap-2 md:gap-4 xl:gap-2 items-center lg:items-start">
-								<img src={buildingIcon6} alt="" />
-								<p className="text-center lg:text-left">
-									To administer the properties of the Trust in achieving the
-									objects mentioned in this Deed.
 								</p>
 							</div>
 						</div>
